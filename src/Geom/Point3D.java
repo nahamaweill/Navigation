@@ -328,7 +328,8 @@ public class Point3D implements Geom_element, Serializable
 	public final static int EARTH_R=6371000;
 	public void chang_Geometric_To_Cart()
 	{
-		//changing the point gps from coordinates polar to cartesian
+		//changing the point gps from coordinates geometric to cartesian
+		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
 		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
 		this._z = EARTH_R *Math.sin(this._x);

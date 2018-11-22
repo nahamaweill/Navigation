@@ -333,5 +333,6 @@ public class Point3D implements Geom_element, Serializable
 		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
 		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
 		this._z = EARTH_R *Math.sin(this._x);
+		System.out.println("chang "+ this.toString());
 	}
 }

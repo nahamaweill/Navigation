@@ -2,7 +2,7 @@ package Coords;
 
 import Geom.Point3D;
 
-public class coord implements coords_converter
+public class MyCoords implements coords_converter
 {
 	public final static int EARTH_R=6371000;
 	public final static double LON_NORM=0.847091174;
@@ -39,7 +39,7 @@ public class coord implements coords_converter
 		dis_lon = gps0.d2r(dis_lon);
 		dis_lat = Math.sin(dis_lat)*EARTH_R;
 		dis_lon = Math.sin(dis_lon)*EARTH_R*LON_NORM;
-		double dis= dis_lat*dis_lat+dis_lon*dis_lon+dis_alt*dis_alt;
+		double dis= dis_lat*dis_lat+dis_lon*dis_lon;
 		return Math.sqrt(dis);
 	}
 	

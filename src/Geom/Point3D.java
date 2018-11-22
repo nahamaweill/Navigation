@@ -330,9 +330,24 @@ public class Point3D implements Geom_element, Serializable
 	{
 		//changing the point gps from coordinates geometric to cartesian
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+		this._x = this.d2r(_x);
+		this._y = this.d2r(_y);
+		this._z = this.d2r(_z);
+
 		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
 		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
 		this._z = EARTH_R *Math.sin(this._x);
-		System.out.println("chang "+ this.toString());
+	}
+	
+	public void chang_Cart_To_Geometric()
+	{
+		//changing the point gps from coordinates cartesian to geometric
+		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
+		this._x = Math.asin(this._z/EARTH_R);
+		this._y = Math.atan2(this._y, this._x);
+		
+		this._x = this.r2d(_x);
+		this._y = this.r2d(_y);
+		this._z = this.r2d(_z);
 	}
 }

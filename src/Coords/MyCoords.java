@@ -20,6 +20,7 @@ public class MyCoords implements coords_converter
 		gps.chang_Geometric_To_Cart();
 		Point3D temp = new Point3D(gps);
 		temp.add(local_vector_in_meter);
+		temp.chang_Cart_To_Geometric();
 		return temp;
 	}
 	
@@ -32,6 +33,7 @@ public class MyCoords implements coords_converter
 	 */
 	@Override
 	public double distance3d(Point3D gps0, Point3D gps1) {
+		
 		double dis_lat = gps1.x()-gps0.x();
 		double dis_lon = gps1.y()-gps0.y();
 		double dis_alt = gps1.z()-gps0.z();

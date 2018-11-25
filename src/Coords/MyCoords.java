@@ -4,9 +4,7 @@ import Geom.Point3D;
 
 public class MyCoords implements coords_converter
 {
-	public final static int EARTH_R=6371000;
-	public final static double LON_NORM=0.847091174;
-	
+	public final static int EARTH_R=6371000;	
 	/**
 	 * This function computes a new point which is the gps point transformed by a 3D vector (in meters),
 	 * the function is using a function that change a geometric coordinate to a cartesian coordinate.
@@ -33,14 +31,14 @@ public class MyCoords implements coords_converter
 	 */
 	@Override
 	public double distance3d(Point3D gps0, Point3D gps1) {
-		
+		double lon_norm = Math.cos(gps0.x()*Math.PI/180);
 		double dis_lat = gps1.x()-gps0.x();
 		double dis_lon = gps1.y()-gps0.y();
 		double dis_alt = gps1.z()-gps0.z();
 		dis_lat = gps0.d2r(dis_lat);
 		dis_lon = gps0.d2r(dis_lon);
 		dis_lat = Math.sin(dis_lat)*EARTH_R;
-		dis_lon = Math.sin(dis_lon)*EARTH_R*LON_NORM;
+		dis_lon = Math.sin(dis_lon)*EARTH_R*lon_norm;
 		double dis= dis_lat*dis_lat+dis_lon*dis_lon;
 		return Math.sqrt(dis);
 	}

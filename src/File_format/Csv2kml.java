@@ -30,7 +30,7 @@ public class Csv2kml {
 		return data;
 	}
 
-	public StringBuilder KmlPlacemark(String csvFile) throws FileNotFoundException {
+	public StringBuilder kmlPlacemark(String csvFile) throws FileNotFoundException {
 		ArrayList<String[]> data = loadCsvLine(csvFile);
 		StringBuilder sb = new StringBuilder();
 		sb.append(startKml_untill_3_line);
@@ -49,7 +49,7 @@ public class Csv2kml {
 	}
 
 	public void createKmlFile(String newFile, String csvFile) throws FileNotFoundException, IOException {
-		StringBuilder sb = KmlPlacemark(csvFile);
+		StringBuilder sb = kmlPlacemark(csvFile);
 		try {
 			PrintWriter pw = new PrintWriter(new File(newFile));
 			pw.write(sb.toString());

@@ -1,76 +1,61 @@
 package File_format;
 
-// Test
-
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
+import java.io.PrintWriter;
+
+import java.util.ArrayList;
 
 public class Csv2kml {
-	public static List<String[]> loadCsvFile(String fileWithPath, String delimiter) {
-		// read CSV file
-		Vector<String[]> list = new Vector<String[]>();
-		if (delimiter == null || delimiter.equals("")) {
-			delimiter = ",";
-		}
-		BufferedReader reader = null;
-		String readString;
-		try {
-			// open file
-			reader = new BufferedReader(new FileReader(new File(fileWithPath)));
-			while ((readString = reader.readLine()) != null) {
-				list.add(readString.split(delimiter));
+
+	final String startKml_untill_3_line = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+			+ "<kml xmlns=\"http://www.opengis.net/kml/2.2\"><Document><Style id=\"red\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id=\"yellow\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id=\"green\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>Wifi Networks</name>\r\n"
+			+ "";
+
+	public ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
+		String line = "";
+		String csvSplitBy = ",";
+		ArrayList<String[]> data = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+			while ((line = br.readLine()) != null) {
+				String[] dataLine = line.split(csvSplitBy);
+				data.add(dataLine);
 			}
-			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return data;
 	}
 
-	public static HashMap<String, HashMap<String, Double>> readMultiDataFromCsv(String fileWithPath, int codeColumn,
-			int dataColumn, int multiColumn) {
-
-		// read CSV file
-		List<String[]> stringVector = loadCsvFile(fileWithPath, ",\"");
-		int size = stringVector.size(); // size of rows in the CSV file
-		HashMap<String, HashMap<String, Double>> dataMap = new HashMap<String, HashMap<String, Double>>();
-		double max = Double.NEGATIVE_INFINITY;
-		double min = Double.POSITIVE_INFINITY;
-		String regex = "\"";
-		String replacement = "";
-		String code, data, multiData;
-
-		// ignore header, start with index 1
-		for (int i = 1; i < size; i++) {
-			String[] row = stringVector.get(i); // get row with index i: array of strings (for each column)
-			code = row[codeColumn].replaceAll(regex, replacement).trim();
-			data = row[dataColumn].replaceAll(regex, replacement).trim();
-			multiData = row[multiColumn].replaceAll(regex, replacement).trim();
-
-			if (!dataMap.containsKey(code)) {
-				HashMap<String, Double> tmp = new HashMap<String, Double>();
-				dataMap.put(code, tmp);
-			}
-			HashMap<String, Double> nested = dataMap.get(code);
-			double value = new Double(data);
-			nested.put(multiData, new Double(value));
-
-			// save minimum and maximum
-			max = Math.max(value, max);
-			min = Math.min(value, min);
+	public StringBuilder KmlPlacemark(String csvFile) throws FileNotFoundException {
+		ArrayList<String[]> data = loadCsvLine(csvFile);
+		StringBuilder sb = new StringBuilder();
+		sb.append(startKml_untill_3_line);
+		String ans;
+		for (int i = 2; i < data.size(); i++) {
+			ans = "<Placemark>/n " + "<name><!CDATA[" + data.get(i)[1] + "]]></name>/n"
+					+ "<description><![CDATA[BSSID :<b>" + data.get(i)[0] + "</b><br/>Capabilities:<b>" + data.get(i)[2]
+					+ "</b><br/>Frequency:<b>" + null + "</b><br/>Timestamp:<b>" + null + "</b><br/>Date:<b>"
+					+ data.get(i)[3] + "</b>]]></description><styleUrl>#red</styleUrl>/n" + "<Point>/n"
+					+ "<Coordinates>" + data.get(i)[6] + "," + data.get(i)[7] + "</Coordinates></Point>/n"
+					+ "</Placemark>";
+			sb.append(ans);
 		}
+		sb.append("</Folder>\r\n" + "</Document></kml>");
+		return sb;
+	}
 
-		// save min and max to HashMap
-		HashMap<String, Double> minmax = new HashMap<String, Double>();
-		minmax.put("minimum", min);
-		minmax.put("maximum", max);
-		dataMap.put("info", minmax);
-		return dataMap;
+	public void createKmlFile(String newFile, String csvFile) throws FileNotFoundException, IOException {
+		StringBuilder sb = KmlPlacemark(csvFile);
+		try {
+			PrintWriter pw = new PrintWriter(new File(newFile));
+			pw.write(sb.toString());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

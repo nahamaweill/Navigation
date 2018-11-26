@@ -38,9 +38,9 @@ public class Csv2kml {
 		for (int i = 2; i < data.size(); i++) {
 			ans = "<Placemark>/n " + "<name><!CDATA[" + data.get(i)[1] + "]]></name>/n"
 					+ "<description><![CDATA[BSSID :<b>" + data.get(i)[0] + "</b><br/>Capabilities:<b>" + data.get(i)[2]
-					+ "</b><br/>Frequency:<b>" + null + "</b><br/>Timestamp:<b>" + null + "</b><br/>Date:<b>"
-					+ data.get(i)[3] + "</b>]]></description><styleUrl>#red</styleUrl>/n" + "<Point>/n"
-					+ "<Coordinates>" + data.get(i)[6] + "," + data.get(i)[7] + "</Coordinates></Point>/n"
+					+ "</b><br/>Channel:<b>" + data.get(i)[4] + "</b><br/>RSSI:<b>" + data.get(i)[5]
+					+ "</b><br/>Date:<b>" + data.get(i)[3] + "</b>]]></description><styleUrl>#red</styleUrl>/n"
+					+ "<Point>/n" + "<Coordinates>" + data.get(i)[6] + "," + data.get(i)[7] + "</Coordinates></Point>/n"
 					+ "</Placemark>";
 			sb.append(ans);
 		}

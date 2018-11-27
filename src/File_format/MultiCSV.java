@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 public class MultiCSV {
 
-	public void listAllFiles(File folder) {
+	public static void listAllFiles(File folder) {
 		System.out.println("In listAllfiles(File) method");
 		File[] fileNames = folder.listFiles();
 		for (File file : fileNames) {
@@ -30,7 +30,7 @@ public class MultiCSV {
 		}
 	}
 
-	public void readContent(File file) throws IOException {
+	public static void readContent(File file) throws IOException {
 		System.out.println("read file " + file.getCanonicalPath());
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String strLine;
@@ -42,4 +42,8 @@ public class MultiCSV {
 		}
 	}
 
+	public static void main(String[] args) {
+		File s = new File("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
+		listAllFiles(s);
+	}
 }

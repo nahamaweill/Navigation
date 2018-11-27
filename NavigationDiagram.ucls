@@ -3,22 +3,22 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <package id="1" language="java" name="Coords" project="Navigtion" file="/Navigtion/src/Coords" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="58" y="30"/>    
+    <position height="-1" width="-1" x="420" y="41"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="2" language="java" name="File_format" project="Navigtion" file="/Navigtion/src/File_format" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="314" y="61"/>    
+    <position height="-1" width="-1" x="250" y="299"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="3" language="java" name="Geom" project="Navigtion" file="/Navigtion/src/Geom" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="457" y="47"/>    
+    <position height="-1" width="-1" x="579" y="314"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="4" language="java" name="GIS" project="Navigtion" file="/Navigtion/src/GIS" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="693" y="37"/>    
+    <position height="-1" width="-1" x="438" y="173"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="5" language="java" name="GUI" project="Navigtion" file="/Navigtion/src/GUI" binary="false" 
@@ -28,7 +28,7 @@
   </package>  
   <package id="6" language="java" name="Threads" project="Navigtion" file="/Navigtion/src/Threads" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="361" y="164"/>    
+    <position height="-1" width="-1" x="684" y="179"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

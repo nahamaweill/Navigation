@@ -20,9 +20,10 @@ public class Csv2kml {
 		String line = "";
 		String csvSplitBy = ",";
 		ArrayList<String[]> data = new ArrayList<>();
+		String[] dataLine;
 		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 			while ((line = br.readLine()) != null) {
-				String[] dataLine = line.split(csvSplitBy);
+				dataLine = line.split(csvSplitBy);
 				data.add(dataLine);
 			}
 		} catch (IOException e) {
@@ -50,6 +51,7 @@ public class Csv2kml {
 		try {
 			PrintWriter pw = new PrintWriter(new File(newFile));
 			pw.write(s);
+			pw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

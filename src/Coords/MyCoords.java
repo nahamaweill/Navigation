@@ -20,8 +20,20 @@ public class MyCoords implements coords_converter {
 		gps.chang_Geometric_To_Cart();
 		Point3D temp = new Point3D(gps);
 		temp.add(local_vector_in_meter);
-		temp.chang_Cart_To_Geometric();
 		return temp;
+	}
+	
+	public double distance2d(Point3D gps0, Point3D gps1)
+	{
+		double lon_norm = Math.cos(gps0.x() * Math.PI / 180);
+		double dis_lat = gps1.x() - gps0.x();
+		double dis_lon = gps1.y() - gps0.y();
+		dis_lat = gps0.d2r(dis_lat);
+		dis_lon = gps0.d2r(dis_lon);
+		dis_lat = Math.sin(dis_lat) * EARTH_R;
+		dis_lon = Math.sin(dis_lon) * EARTH_R * lon_norm;
+		double dis = dis_lat * dis_lat + dis_lon * dis_lon;
+		return Math.sqrt(dis);
 	}
 
 	/**
@@ -34,15 +46,9 @@ public class MyCoords implements coords_converter {
 	 */
 	@Override
 	public double distance3d(Point3D gps0, Point3D gps1) {
-		double lon_norm = Math.cos(gps0.x() * Math.PI / 180);
-		double dis_lat = gps1.x() - gps0.x();
-		double dis_lon = gps1.y() - gps0.y();
+		double dis= distance2d(gps0, gps1);
 		double dis_alt = gps1.z() - gps0.z();
-		dis_lat = gps0.d2r(dis_lat);
-		dis_lon = gps0.d2r(dis_lon);
-		dis_lat = Math.sin(dis_lat) * EARTH_R;
-		dis_lon = Math.sin(dis_lon) * EARTH_R * lon_norm;
-		double dis = dis_lat * dis_lat + dis_lon * dis_lon;
+		dis= dis*dis + dis_alt*dis_alt;
 		return Math.sqrt(dis);
 	}
 
@@ -79,14 +85,27 @@ public class MyCoords implements coords_converter {
 		// calculating the azimuth
 		double azi_x = gps1.x() - gps0.x();
 		double azi_y = gps1.y() - gps0.y();
-		double azi = Math.abs(Math.atan(azi_y / azi_x));
-		// calculating the elevation
-		double rib_a = gps0.distance2D(gps1);
-		double rib_b = gps0.distance3D(gps1);
-		double ang = Math.acos(rib_b / rib_a);
-		double elev = rib_a * (Math.sin(ang));
+		double x = Math.abs(Math.atan(azi_y / azi_x)*(180/Math.PI));
+		
+		double azi=0;
+		if (azi_x>0 && azi_y>0)
+			azi = x;
+		else if (azi_x<0 && azi_y>0)
+			azi = 180-x;
+		else if (azi_x<0 && azi_y<0)
+			azi = 180+x;
+		else 
+			azi = 360-x;
+		
+
 		// calculating the distance
 		double dis = distance3d(gps0, gps1);
+
+		// calculating the elevation
+		double dis_2D = distance2d(gps0, gps1);
+		double ang = Math.acos(dis_2D / dis);
+		double elev = dis * (Math.sin(ang));
+
 
 		double[] ans = { azi, elev, dis };
 

@@ -11,11 +11,12 @@ import java.util.ArrayList;
 
 public class Csv2kml {
 
-	final String startKml_untill_3_line = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-			+ "<kml xmlns=\"http://www.opengis.net/kml/2.2\"><Document><Style id=\"red\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id=\"yellow\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id=\"green\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>Wifi Networks</name>\r\n"
-			+ "";
+	final static String startKml_untill_3_line = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+			+ "<kml xmlns=\"http://www.opengis.net/kml/2.2\">" + "\n" + "<Document><Folder>\n";
 
-	public ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
+	final static String endKml_2_lines = "</Folder>\n</Document></kml>";
+
+	public static ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
 		String csvSplitBy = ",";
 		ArrayList<String[]> data = new ArrayList<>();
@@ -30,32 +31,32 @@ public class Csv2kml {
 		return data;
 	}
 
-	public StringBuilder kmlPlacemark(String csvFile) throws FileNotFoundException {
+	public static String newKmlFile(String csvFile) throws FileNotFoundException {
 		ArrayList<String[]> data = loadCsvLine(csvFile);
-		StringBuilder sb = new StringBuilder();
-		sb.append(startKml_untill_3_line);
+		String s = startKml_untill_3_line;
 		String ans;
 		for (int i = 2; i < data.size(); i++) {
-			ans = "<Placemark>/n " + "<name><!CDATA[" + data.get(i)[1] + "]]></name>/n"
-					+ "<description><![CDATA[BSSID :<b>" + data.get(i)[0] + "</b><br/>Capabilities:<b>" + data.get(i)[2]
-					+ "</b><br/>Channel:<b>" + data.get(i)[4] + "</b><br/>RSSI:<b>" + data.get(i)[5]
-					+ "</b><br/>Date:<b>" + data.get(i)[3] + "</b>]]></description><styleUrl>#red</styleUrl>/n"
-					+ "<Point>/n" + "<Coordinates>" + data.get(i)[6] + "," + data.get(i)[7] + "</Coordinates></Point>/n"
-					+ "</Placemark>";
-			sb.append(ans);
+			ans = "<Placemark>\n" + "<name>" + data.get(i)[1] + "</name>\n" + "<description>" + data.get(i)[10]
+					+ "</description>\n" + "<Point><coordinates>" + data.get(i)[7] + "," + data.get(i)[6] + ","
+					+ data.get(i)[8] + "</coordinates></Point>\n" + "<time>" + data.get(i)[3] + "</time></Placemark>\n";
+			s = s + ans;
 		}
-		sb.append("</Folder>\r\n" + "</Document></kml>");
-		return sb;
+		s = s + endKml_2_lines;
+		return s;
 	}
 
-	public void createKmlFile(String newFile, String csvFile) throws FileNotFoundException, IOException {
-		StringBuilder sb = kmlPlacemark(csvFile);
+	public static void newOBJkml(String newFile, String csvFile) throws FileNotFoundException {
+		String s = newKmlFile(csvFile);
 		try {
 			PrintWriter pw = new PrintWriter(new File(newFile));
-			pw.write(sb.toString());
-		} catch (FileNotFoundException e) {
+			pw.write(s);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		newOBJkml("File.kml", "C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data\\WigleWifi_20171203085618.csv");
 	}
 
 }

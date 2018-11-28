@@ -330,13 +330,26 @@ public class Point3D implements Geom_element, Serializable
 	{
 		//changing the point gps from coordinates geometric to cartesian
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-		this._x = this.d2r(_x);
-		this._y = this.d2r(_y);
-		this._z = this.d2r(_z);
-
-		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
-		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
-		this._z = EARTH_R *Math.sin(this._x);
+//		this._x = this.d2r(_x);
+//		this._y = this.d2r(_y);
+//		this._z = this.d2r(_z);
+//
+//		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
+//		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
+//		this._z = EARTH_R *Math.sin(this._x);
+		
+		double a=6378.1;
+	    double b=6356.8;
+	    double N;
+	    double e= 1-(Math.pow(b, 2)/Math.pow(a, 2));
+	    N= a/(Math.sqrt(1.0-(e*Math.pow(Math.sin(Math.toRadians(_x)), 2))));
+	    double cosLatRad=Math.cos(Math.toRadians(_x));
+	    double cosLongiRad=Math.cos(Math.toRadians(_y));
+	    double sinLatRad=Math.sin(Math.toRadians(_x));
+	    double sinLongiRad=Math.sin(Math.toRadians(_y));
+	    double x =(N+0.001*_z)*cosLatRad*cosLongiRad;
+	    double y =(N+0.001*_z)*cosLatRad*sinLongiRad;
+	    double z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
 	}
 	
 	public void chang_Cart_To_Geometric()

@@ -23,6 +23,14 @@ public class MyCoords implements coords_converter {
 		return temp;
 	}
 	
+	/**
+	 * This function computes the 2D distance (in meters) between the two gps like
+	 * points we used the file Excel that was send to use by Boaz.
+	 * 
+	 * @param gps0 the first point
+	 * @param gps1 the second point
+	 * @return the distance 2D in meters
+	 */
 	public double distance2d(Point3D gps0, Point3D gps1)
 	{
 		double lon_norm = Math.cos(gps0.x() * Math.PI / 180);

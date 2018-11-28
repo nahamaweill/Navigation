@@ -16,8 +16,6 @@ public class MyCoords implements coords_converter {
 	 */
 	@Override
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
-		// changing the point gps from coordinates polar to cartesian
-		gps.chang_Geometric_To_Cart();
 		Point3D temp = new Point3D(gps);
 		temp.add(local_vector_in_meter);
 		return temp;
@@ -73,7 +71,10 @@ public class MyCoords implements coords_converter {
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 		gps0.chang_Geometric_To_Cart();
 		gps1.chang_Geometric_To_Cart();
-		Point3D vec = new Point3D(gps1.x() - gps0.x(), gps1.y() - gps0.y(), gps1.z() - gps0.z());
+		double x = gps1.x() - gps0.x();
+		double y = gps1.y() - gps0.y();
+		double z = gps1.z() - gps0.z();
+		Point3D vec = new Point3D(x, y, z);
 		return vec;
 	}
 

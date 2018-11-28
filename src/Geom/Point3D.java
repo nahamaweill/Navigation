@@ -347,9 +347,9 @@ public class Point3D implements Geom_element, Serializable
 	    double cosLongiRad=Math.cos(Math.toRadians(_y));
 	    double sinLatRad=Math.sin(Math.toRadians(_x));
 	    double sinLongiRad=Math.sin(Math.toRadians(_y));
-	    double x =(N+0.001*_z)*cosLatRad*cosLongiRad;
-	    double y =(N+0.001*_z)*cosLatRad*sinLongiRad;
-	    double z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
+	    this._x =(N+0.001*_z)*cosLatRad*cosLongiRad;
+	    this._y =(N+0.001*_z)*cosLatRad*sinLongiRad;
+	    this._z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
 	}
 	
 	public void chang_Cart_To_Geometric()

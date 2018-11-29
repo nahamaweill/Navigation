@@ -18,7 +18,7 @@ import Geom.Point3D;
 public class MyMeta_data implements Meta_data {
 
 	private String dataView;
-	private String[] data = dataView.split(",");
+	private String[] data;
 	private long UTC;
 	private Point3D point;
 	private String name;
@@ -26,6 +26,7 @@ public class MyMeta_data implements Meta_data {
 	private String time;
 
 	public MyMeta_data(String dataView) {
+		data = dataView.split(",");
 		double x = Integer.parseInt(data[7]);
 		double y = Integer.parseInt(data[6]);
 		double z = Integer.parseInt(data[8]);
@@ -103,13 +104,19 @@ public class MyMeta_data implements Meta_data {
 	}
 
 	@Override
-	public long getUTC() {
-		long time = new Date().getTime();
-		this.UTC = time;
-		return this.UTC;
+	public long getUTC() throws ParseException {
+//		long time = new Date().getTime();
+//		this.UTC = time;
+//		return this.UTC;
+		
+		String myDate = "2014/10/29 18:10:45";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = sdf.parse(myDate);
+		long millis = date.getTime();
+		return millis;
 	}
 
-	public String UTFFormat() {
+	public String UTFFormat() throws ParseException {
 		String str = Instant.ofEpochMilli(getUTC()).atOffset(ZoneOffset.UTC).toString();
 		String theTime = str.substring(11, 19);
 		String Date = str.substring(0, 10);

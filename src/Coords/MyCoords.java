@@ -113,10 +113,10 @@ public class MyCoords implements coords_converter {
 		// calculating the elevation
 		double dis_2D = distance2d(gps0, gps1);
 		double ang = Math.acos(dis_2D / dis);
-		double elev = dis * (Math.sin(ang));
+//		double elev = dis * (Math.sin(ang));
 
 
-		double[] ans = { azi, elev, dis };
+		double[] ans = { azi, ang, dis };
 
 		return ans;
 	}

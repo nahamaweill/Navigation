@@ -47,7 +47,7 @@ class MyCoordsTest {
 		Point3D vec=new Point3D(2.7311740999488247E-8,-3.429930200000682E-8,-20.0);
 		Point3D ans= p.vector3D(p1, p2);
 		if (!ans.equals(vec))
-		fail("The point vec and the point ans should be the equals");
+			fail("The point vec and the point ans should be the equals");
 	}
 
 	@Test
@@ -55,8 +55,12 @@ class MyCoordsTest {
 		MyCoords p=new MyCoords();
 		Point3D p1=new Point3D(32.103315,35.209039,670);
 		Point3D p2=new Point3D(32.106352,35.205225,650);
-		
-		fail("Not yet implemented");
+		double[] ans = p.azimuth_elevation_dist(p1, p2);
+		double azi= ans[0];
+		double elev= ans[1];
+		double dis= ans[2];
+		if (azi!=308.52949903084226 || elev!=0.040541419501888894 || dis!=493.4578015650176)
+			fail("The azimouth or the elevation or the distance are not correct");
 	}
 
 	@Test

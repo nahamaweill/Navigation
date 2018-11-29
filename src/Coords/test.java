@@ -24,9 +24,8 @@ public class test {
 		MyCoords p=new MyCoords();
 		Point3D p1=new Point3D(32.103315,35.209039,670);
 		Point3D p2=new Point3D(32.106352,35.205225,650);
-		Point3D vec= p.vector3D(p1, p2);
-		System.out.println(vec.toString());
-		Point3D ans= p.add(p1, vec);
+		double[] ans = p.azimuth_elevation_dist(p1, p2);
+		System.out.println("azi: "+ans[0]+" elev: "+ans[1]+" dis: "+ans[2]);
 
 		
 	}

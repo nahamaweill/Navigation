@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.w3c.dom.ls.LSInput;
 
 public class MyGIS_project implements GIS_project {
 

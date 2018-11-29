@@ -42,7 +42,7 @@ public class MyGIS_Element implements GIS_element {
 
 	@Override
 	public String toString() {
-		return "MyGIS_Element :  \n " + data.toString()  ;
+		return "\n MyGIS_Element :\n " + data.toString()  ;
 	}
 
 	

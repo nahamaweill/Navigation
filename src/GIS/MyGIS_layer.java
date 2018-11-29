@@ -10,6 +10,11 @@ public class MyGIS_layer implements GIS_layer {
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
 	private ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();
 
+	public MyGIS_layer() {
+		layer = new ArrayList<GIS_element>();
+		data = new ArrayList<MyMeta_data>();
+	}
+	
 	public MyGIS_layer(Set<GIS_element> a) {
 		Iterator iter = a.iterator();
 		while (iter.hasNext()) {
@@ -86,9 +91,9 @@ public class MyGIS_layer implements GIS_layer {
 
 	@Override
 	public String toString() {
-		String h = "";
+		String h = " MyGIS_layer :\n";
 		for (int i = 0; i < layer.size(); i++) {
-			h = h + "MyGIS_layer [layer=" + layer.get(i).toString() + "]";
+			h = h + layer.get(i).toString() + "\n\n";
 		}
 		return h;
 	}

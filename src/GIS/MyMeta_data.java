@@ -85,7 +85,7 @@ public class MyMeta_data implements Meta_data {
 
 	@Override
 	public String toString() {
-		return " MyMeta_data :  \n UTC=" + UTC + ",\n point="
+		return "MyMeta_data:\n UTC=" + UTC + ",\n point="
 				+ point.toString() + ",\n name=" + name + ",\n type=" + type + ",\n time=" + time.toString();
 	}
 

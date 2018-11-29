@@ -130,7 +130,6 @@ public class MyCoords implements coords_converter {
 	 */
 	@Override
 	public boolean isValid_GPS_Point(Point3D p) {
-		p.chang_Cart_To_Geometric();
 		if (p.x() < -180 || p.x() > 180) // verify if the lat is correct
 			return false;
 		if (p.y() < -90 || p.y() > 90) // verify if the lon is correct

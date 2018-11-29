@@ -44,7 +44,7 @@ class MyCoordsTest {
 		MyCoords p=new MyCoords();
 		Point3D p1=new Point3D(32.103315,35.209039,670);
 		Point3D p2=new Point3D(32.106352,35.205225,650);
-		Point3D vec=new Point3D(0.04746286191584659,-0.4071312457167551,0.2746721167936812);
+		Point3D vec=new Point3D(2.7311740999488247E-8,-3.429930200000682E-8,-20.0);
 		Point3D ans= p.vector3D(p1, p2);
 		if (!ans.equals(vec))
 		fail("The point vec and the point ans should be the equals");
@@ -52,7 +52,10 @@ class MyCoordsTest {
 
 	@Test
 	void testAzimuth_elevation_dist() {
-
+		MyCoords p=new MyCoords();
+		Point3D p1=new Point3D(32.103315,35.209039,670);
+		Point3D p2=new Point3D(32.106352,35.205225,650);
+		
 		fail("Not yet implemented");
 	}
 

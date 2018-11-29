@@ -350,6 +350,8 @@ public class Point3D implements Geom_element, Serializable
 	}
 	////////////////////////////////////////////////////////////////////////////////
 	public final static int EARTH_R=6371000;
+	public final static double R = 0.000008993;
+
 	public void chang_Geometric_To_Cart()
 	{
 		//changing the point gps from coordinates geometric to cartesian
@@ -362,29 +364,38 @@ public class Point3D implements Geom_element, Serializable
 //		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
 //		this._z = EARTH_R *Math.sin(this._x);
 		
-		double a=6378.1;
-	    double b=6356.8;
-	    double N;
-	    double e= 1-(Math.pow(b, 2)/Math.pow(a, 2));
-	    N= a/(Math.sqrt(1.0-(e*Math.pow(Math.sin(Math.toRadians(_x)), 2))));
-	    double cosLatRad=Math.cos(Math.toRadians(_x));
-	    double cosLongiRad=Math.cos(Math.toRadians(_y));
-	    double sinLatRad=Math.sin(Math.toRadians(_x));
-	    double sinLongiRad=Math.sin(Math.toRadians(_y));
-	    this._x =(N+0.001*_z)*cosLatRad*cosLongiRad;
-	    this._y =(N+0.001*_z)*cosLatRad*sinLongiRad;
-	    this._z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
+//		double a=6378.1;
+//	    double b=6356.8;
+//	    double N;
+//	    double e= 1-(Math.pow(b, 2)/Math.pow(a, 2));
+//	    N= a/(Math.sqrt(1.0-(e*Math.pow(Math.sin(Math.toRadians(_x)), 2))));
+//	    double cosLatRad=Math.cos(Math.toRadians(_x));
+//	    double cosLongiRad=Math.cos(Math.toRadians(_y));
+//	    double sinLatRad=Math.sin(Math.toRadians(_x));
+//	    double sinLongiRad=Math.sin(Math.toRadians(_y));
+//	    this._x =(N+0.001*_z)*cosLatRad*cosLongiRad;
+//	    this._y =(N+0.001*_z)*cosLatRad*sinLongiRad;
+//	    this._z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
+		
+		this._y= this.y()*R;
+		this._x= this.x()*R/ Math.cos(this.y()*(Math.PI/180));
+		
 	}
 	
 	public void chang_Cart_To_Geometric()
 	{
 		//changing the point gps from coordinates cartesian to geometric
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-		this._x = Math.asin(this._z/EARTH_R);
-		this._y = Math.atan2(this._y, this._x);
+//		this._x = Math.asin(this._z/EARTH_R);
+//		this._y = Math.atan2(this._y, this._x);
 		
-		this._x = this.r2d(_x);
-		this._y = this.r2d(_y);
-		this._z = this.r2d(_z);
+//		this._x = this.r2d(_x);
+//		this._y = this.r2d(_y);
+//		this._z = this.r2d(_z);
+		
+		double y = this.y()/R;
+		double x =  (this.x()*Math.cos(this.y()*(Math.PI/180))/R);
+		this._y = y;
+		this._x = x;
 	}
 }

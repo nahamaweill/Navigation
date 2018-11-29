@@ -8,13 +8,12 @@ import java.util.Set;
 public class MyGIS_layer implements GIS_layer {
 
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
-	private MyMeta_data_layer data;
+	private MyMeta_data_layer data = new MyMeta_data_layer();
 
 	public MyGIS_layer(ArrayList<GIS_element> x) {
 		for (int i = 0; i < x.size(); i++) {
 			layer.add(x.get(i));
-			MyMeta_data d = new MyMeta_data(x.get(i).getData());
-			data.add(d);
+			data.add((MyMeta_data) x.get(i).getData());
 		}
 	}
 

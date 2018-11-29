@@ -39,14 +39,23 @@ public class Test {
 		x.add(e4);
 		x.add(e5);
 		x.add(e6);
-		ArrayList<MyGIS_Element> y = new ArrayList<MyGIS_Element>();
+		ArrayList<GIS_element> y = new ArrayList<GIS_element>();
+		y.add(e7);
+		y.add(e8);
+		y.add(e9);
+		y.add(e10);
+		y.add(e11);
+		y.add(e12);
 		
-		MyGIS_layer c = new MyGIS_layer(x);
+		MyGIS_layer p1 = new MyGIS_layer(x);		
+		MyGIS_layer p2 = new MyGIS_layer(y);
 		
+		MyGIS_layer[] ans = new MyGIS_layer[2];
+		ans[0] = p1;
+		ans[1] = p2;
+		MyGIS_project pro1 = new MyGIS_project(ans);
 		
-		
-	//	MyGIS_project pro = new MyGIS_project(s);
-		System.out.println(e6.toString());
+		System.out.println(pro1.toString());
 	}
 
 }

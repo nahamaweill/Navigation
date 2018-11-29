@@ -7,18 +7,18 @@ import java.util.Iterator;
 public class MyGIS_project implements GIS_project {
 
 	ArrayList<GIS_layer> listLayer = new ArrayList<GIS_layer>();
-	ArrayList<MyMeta_data_project> data = new ArrayList<MyMeta_data_project>();
+	MyMeta_data_project data = new MyMeta_data_project();
 
 	public MyGIS_project() {
 		listLayer = new ArrayList<GIS_layer>();
-		data = new ArrayList<MyMeta_data_project>();
+		data = new MyMeta_data_project();
 	}
 
 	public MyGIS_project(ArrayList<String[]> s) {
 		for (int i = 0; i < s.size(); i++) {
 			MyGIS_layer ans = new MyGIS_layer(s.get(i));
 			listLayer.add(ans);
-			data.add((MyMeta_data_project) ans.get_Meta_data());
+			data.add(ans.get_Meta_data());
 		}
 	}
 
@@ -26,7 +26,7 @@ public class MyGIS_project implements GIS_project {
 		for (int i = 0; i < list.length; i++) {
 			MyGIS_layer ans = new MyGIS_layer(list[i]);
 			listLayer.add(ans);
-			data.add((MyMeta_data_project) ans.get_Meta_data());
+			data.add(list[i].get_Meta_data());
 		}
 
 	}
@@ -98,9 +98,9 @@ public class MyGIS_project implements GIS_project {
 
 	@Override
 	public String toString() {
-		String h = "MyGIS_project : \\n listLayer = \\n";
+		String h = "MyGIS_project : \n\n";
 		for (int i = 0; i < listLayer.size(); i++) {
-			h = h + listLayer.get(i).toString() + ", data = \n" + data.get(i).toString();
+			h = h + listLayer.get(i).toString() + " data = \n" + data.toString();
 		}
 		return h;
 	}

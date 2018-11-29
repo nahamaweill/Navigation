@@ -53,9 +53,9 @@ public class Test {
 		MyGIS_layer[] ans = new MyGIS_layer[2];
 		ans[0] = p1;
 		ans[1] = p2;
-		MyGIS_project pro1 = new MyGIS_project(ans);
+		MyGIS_project pol = new MyGIS_project(ans);
 		
-		System.out.println(pro1.toString());
+		System.out.println(pol.toString());
 	}
 
 }

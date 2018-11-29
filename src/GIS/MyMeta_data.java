@@ -26,15 +26,16 @@ public class MyMeta_data implements Meta_data {
 	private String time;
 
 	public MyMeta_data(String dataView) {
+		this.dataView = dataView;
 		data = dataView.split(",");
 		double x = Double.parseDouble(data[7]);
 		double y = Double.parseDouble(data[6]);
 		double z = Double.parseDouble(data[8]);
 		point = new Point3D(x,y,z);
-		this.dataView = dataView;
 		this.name = data[1];
 		this.type = data[10];
 		this.time = data[3];
+		this.UTC = new Date().getTime();
 	}
 	
 	

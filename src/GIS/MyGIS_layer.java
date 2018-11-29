@@ -39,6 +39,7 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.add((MyGIS_Element) arg0);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
 		return layer.addAll((Collection<? extends MyGIS_Element>) arg0);

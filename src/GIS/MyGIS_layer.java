@@ -8,6 +8,7 @@ import java.util.Iterator;
 public class MyGIS_layer implements GIS_layer{
 
 	HashSet hs= new HashSet<GIS_element>();
+	
 	@Override
 	public boolean add(GIS_element arg0) {
 		return hs.add(arg0);

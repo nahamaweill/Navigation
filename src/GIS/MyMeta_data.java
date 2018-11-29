@@ -27,9 +27,9 @@ public class MyMeta_data implements Meta_data {
 
 	public MyMeta_data(String dataView) {
 		data = dataView.split(",");
-		double x = Integer.parseInt(data[7]);
-		double y = Integer.parseInt(data[6]);
-		double z = Integer.parseInt(data[8]);
+		double x = Double.parseDouble(data[7]);
+		double y = Double.parseDouble(data[6]);
+		double z = Double.parseDouble(data[8]);
 		point = new Point3D(x,y,z);
 		this.dataView = dataView;
 		this.name = data[1];
@@ -104,19 +104,20 @@ public class MyMeta_data implements Meta_data {
 	}
 
 	@Override
-	public long getUTC() throws ParseException {
-//		long time = new Date().getTime();
-//		this.UTC = time;
-//		return this.UTC;
+	public long getUTC() {
 		
-		String myDate = "2014/10/29 18:10:45";
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = sdf.parse(myDate);
-		long millis = date.getTime();
-		return millis;
+		long time = new Date().getTime();
+		this.UTC = time;
+		return this.UTC;
+		
+//		String myDate = "2014/10/29 18:10:45";
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//		Date date = sdf.parse(myDate);
+//		long millis = date.getTime();
+//		return millis;
 	}
 
-	public String UTFFormat() throws ParseException {
+	public String UTFFormat() {
 		String str = Instant.ofEpochMilli(getUTC()).atOffset(ZoneOffset.UTC).toString();
 		String theTime = str.substring(11, 19);
 		String Date = str.substring(0, 10);

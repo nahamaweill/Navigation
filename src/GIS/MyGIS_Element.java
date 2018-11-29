@@ -33,7 +33,7 @@ public class MyGIS_Element implements GIS_element {
 
 	@Override
 	public void translate(Point3D vec) {
-
+		
 	}
 
 }

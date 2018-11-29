@@ -16,7 +16,7 @@ public class Csv2kml {
 
 	final static String endKml_2_lines = "</Folder>\n</Document></kml>";
 
-	public static ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
+	public ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
 		String csvSplitBy = ",";
 		ArrayList<String[]> data = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Csv2kml {
 		return data;
 	}
 
-	public static String newKmlFile(String csvFile) throws FileNotFoundException {
+	public String newKmlFile(String csvFile) throws FileNotFoundException {
 		ArrayList<String[]> data = loadCsvLine(csvFile);
 		String s = startKml_untill_3_line;
 		String ans;
@@ -46,7 +46,7 @@ public class Csv2kml {
 		return s;
 	}
 
-	public static void newOBJkml(String newFile, String csvFile) throws FileNotFoundException {
+	public void newOBJkml(String newFile, String csvFile) throws FileNotFoundException {
 		String s = newKmlFile(csvFile);
 		try {
 			PrintWriter pw = new PrintWriter(new File(newFile));
@@ -58,7 +58,7 @@ public class Csv2kml {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		newOBJkml("File.kml", "C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data\\WigleWifi_20171203085618.csv");
+		//newOBJkml("File.kml", "C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data\\WigleWifi_20171203085618.csv");
 	}
 
 }

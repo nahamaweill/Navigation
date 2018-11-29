@@ -49,16 +49,6 @@ public class Filewalker {
     return ans;
     }
     
-    public MyGIS_layer[] areas(ArrayList<String> s) throws FileNotFoundException {
-    	ArrayList<String[]> ans;
-    	MyGIS_layer[] solution = new MyGIS_layer[];
-    	for (int i = 0; i < s.size(); i++) {
-			ans = loadCsvLine(s.get(i));
-			
-		}
-		return null;
-    	
-    }
 
 //    public static 
     

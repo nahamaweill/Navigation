@@ -20,7 +20,11 @@ public class MyGIS_Element implements GIS_element {
 		this.data.setDataView(Other.data.getDataView());
 	}
 
-	@Override
+	public MyGIS_Element(String s) {
+		this.data = new MyMeta_data(s);
+		this.point = data.getPoint();
+	}
+
 	public Geom_element getGeom() {
 		return this.point;
 	}
@@ -33,7 +37,7 @@ public class MyGIS_Element implements GIS_element {
 
 	@Override
 	public void translate(Point3D vec) {
-		
+		point.add(vec);
 	}
 
 }

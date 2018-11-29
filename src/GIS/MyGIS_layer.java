@@ -1,94 +1,92 @@
 package GIS;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class MyGIS_layer implements GIS_layer{
+public class MyGIS_layer implements GIS_layer {
 
-	HashSet hs= new HashSet<GIS_element>();
-	
+	ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
+
 	@Override
 	public boolean add(GIS_element arg0) {
-		return hs.add(arg0);
+		return layer.add(arg0);
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.addAll(arg0);
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		layer.clear();
 	}
 
 	@Override
 	public boolean contains(Object arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.contains(arg0);
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.containsAll(arg0);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.isEmpty();
 	}
 
 	@Override
 	public Iterator<GIS_element> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return layer.iterator();
 	}
 
 	@Override
 	public boolean remove(Object arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.remove(arg0);
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.removeAll(arg0);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return layer.retainAll(arg0);
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return layer.size();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return layer.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		return layer.toArray(arg0);
+	}
+
+	@Override
+	public String toString() {
+		String h = "";
+		for (int i = 0; i < layer.size(); i++) {
+			h = h + "MyGIS_layer [layer=" + layer.get(i).toString() + "]";
+		}
+		return h;
 	}
 
 	@Override
 	public Meta_data get_Meta_data() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

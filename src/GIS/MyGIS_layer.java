@@ -8,11 +8,11 @@ import java.util.Set;
 public class MyGIS_layer implements GIS_layer {
 
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
-	private ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();;
-
+	private MyMeta_data_layer = new MyMeta_data_layer();
+			
 	public MyGIS_layer() {
 		layer = new ArrayList<GIS_element>();
-		data = new ArrayList<MyMeta_data>();
+		data = new MyMeta_data_layer();
 	}
 
 	public MyGIS_layer(Set<GIS_element> a) {

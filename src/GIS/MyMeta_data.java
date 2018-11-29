@@ -81,11 +81,14 @@ public class MyMeta_data implements Meta_data {
 		return alltheTime;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Data [UTC=" + UTC + ", point=" + point
-				+ ", name=" + name + ", type=" + type + ", time=" + time + "]";
+		return " MyMeta_data :  \n UTC=" + UTC + ",\n point="
+				+ point.toString() + ",\n name=" + name + ",\n type=" + type + ",\n time=" + time.toString();
 	}
+
 
 	@Override
 	public Point3D get_Orientation() {

@@ -3,10 +3,21 @@ package GIS;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Set;
 
 public class MyGIS_layer implements GIS_layer {
 
-	ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
+	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
+	private ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();
+
+	public MyGIS_layer(Set<GIS_element> a) {
+		Iterator iter = a.iterator();
+		while (iter.hasNext()) {
+			GIS_element p = (GIS_element) iter.next();
+			this.layer.add(p);
+			this.data.add((MyMeta_data) p.getData());
+		}
+	}
 
 	@Override
 	public boolean add(GIS_element arg0) {
@@ -84,8 +95,7 @@ public class MyGIS_layer implements GIS_layer {
 
 	@Override
 	public Meta_data get_Meta_data() {
-		
-		return null;
+		return this.get_Meta_data();
 	}
 
 }

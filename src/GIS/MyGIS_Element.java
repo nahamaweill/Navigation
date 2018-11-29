@@ -40,4 +40,10 @@ public class MyGIS_Element implements GIS_element {
 		point.add(vec);
 	}
 
+	@Override
+	public String toString() {
+		return "MyGIS_Element :  \n " + data.toString()  ;
+	}
+
+	
 }

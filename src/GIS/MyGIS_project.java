@@ -4,10 +4,32 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-
 public class MyGIS_project implements GIS_project {
 
 	ArrayList<GIS_layer> listLayer = new ArrayList<GIS_layer>();
+	ArrayList<MyMeta_data_project> data = new ArrayList<MyMeta_data_project>();
+
+	public MyGIS_project() {
+		listLayer = new ArrayList<GIS_layer>();
+		data = new ArrayList<MyMeta_data_project>();
+	}
+
+	public MyGIS_project(ArrayList<String[]> s) {
+		for (int i = 0; i < s.size(); i++) {
+			MyGIS_layer ans = new MyGIS_layer(s.get(i));
+			listLayer.add(ans);
+			data.add((MyMeta_data_project) ans.get_Meta_data());
+		}
+	}
+
+	public MyGIS_project(MyGIS_layer[] list) {
+		for (int i = 0; i < list.length; i++) {
+			MyGIS_layer ans = new MyGIS_layer(list[i]);
+			listLayer.add(ans);
+			data.add((MyMeta_data_project) ans.get_Meta_data());
+		}
+
+	}
 
 	@Override
 	public boolean add(GIS_layer arg0) {
@@ -76,17 +98,16 @@ public class MyGIS_project implements GIS_project {
 
 	@Override
 	public String toString() {
-		String h = "";
+		String h = "MyGIS_project : \\n listLayer = \\n";
 		for (int i = 0; i < listLayer.size(); i++) {
-			h = h + "MyGIS_project [listLayer=" + listLayer.get(i).toString() + "]";
+			h = h + listLayer.get(i).toString() + ", data = \n" + data.get(i).toString();
 		}
 		return h;
 	}
 
 	@Override
 	public Meta_data get_Meta_data() {
-
-		return null;
+		return (Meta_data) this.data;
 	}
 
 }

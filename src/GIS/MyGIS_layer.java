@@ -8,19 +8,27 @@ import java.util.Set;
 public class MyGIS_layer implements GIS_layer {
 
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
-	private ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();
+	private ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();;
 
 	public MyGIS_layer() {
 		layer = new ArrayList<GIS_element>();
 		data = new ArrayList<MyMeta_data>();
 	}
-	
+
 	public MyGIS_layer(Set<GIS_element> a) {
 		Iterator iter = a.iterator();
 		while (iter.hasNext()) {
 			GIS_element p = (GIS_element) iter.next();
 			this.layer.add(p);
 			this.data.add((MyMeta_data) p.getData());
+		}
+	}
+
+	public MyGIS_layer(String[] s) {
+		for (int i = 0; i < s.length; i++) {
+			MyGIS_Element ans = new MyGIS_Element(s[i]);
+			layer.add(ans);
+			data.add((MyMeta_data) ans.getData());
 		}
 	}
 
@@ -93,14 +101,14 @@ public class MyGIS_layer implements GIS_layer {
 	public String toString() {
 		String h = " MyGIS_layer :\n";
 		for (int i = 0; i < layer.size(); i++) {
-			h = h + layer.get(i).toString() + "\n\n";
+			h = h + i + ")  " + layer.get(i).toString() + "\n\n";
 		}
 		return h;
 	}
 
 	@Override
 	public Meta_data get_Meta_data() {
-		return this.get_Meta_data();
+		return null;
 	}
 
 }

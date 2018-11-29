@@ -42,8 +42,10 @@ public class MultiCSV {
 		}
 	}
 
+	
+	
 	public static void main(String[] args) {
-		File s = new File("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
+		File s = new File("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2");
 		listAllFiles(s);
 	}
 }

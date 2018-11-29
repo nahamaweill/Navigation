@@ -1,6 +1,7 @@
 package GIS;
 
 import java.awt.Point;
+import java.util.Iterator;
 
 import Geom.Geom_element;
 import Geom.Point3D;

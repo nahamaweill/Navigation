@@ -38,6 +38,15 @@ public class MyMeta_data implements Meta_data {
 		this.UTC = new Date().getTime();
 	}
 	
+	public MyMeta_data(MyMeta_data other) {
+		this.dataView = other.dataView;
+		this.data = dataView.split(",");
+		this.point = new Point3D(other.point);
+		this.name = other.name;
+		this.type = other.type;
+		this.time = other.time;
+		this.UTC = other.UTC;
+	}
 	
 	public void setDataView(String dataView) {
 		this.dataView = dataView;

@@ -8,18 +8,21 @@ import java.util.Set;
 public class MyGIS_layer implements GIS_layer {
 
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
-	private MyMeta_data_layer = new MyMeta_data_layer();
-			
-	public MyGIS_layer() {
-		layer = new ArrayList<GIS_element>();
-		data = new MyMeta_data_layer();
+	private MyMeta_data_layer data;
+
+	public MyGIS_layer(ArrayList<GIS_element> x) {
+		for (int i = 0; i < x.size(); i++) {
+			layer.add(x.get(i));
+			MyMeta_data d = new MyMeta_data(x.get(i).getData());
+			data.add(d);
+		}
 	}
 
 	public MyGIS_layer(Set<GIS_element> a) {
-		Iterator iter = a.iterator();
+		Iterator<GIS_element> iter = a.iterator();
 		while (iter.hasNext()) {
 			GIS_element p = (GIS_element) iter.next();
-			this.layer.add(p);
+			this.layer.add((MyGIS_Element) p);
 			this.data.add((MyMeta_data) p.getData());
 		}
 	}
@@ -34,12 +37,12 @@ public class MyGIS_layer implements GIS_layer {
 
 	@Override
 	public boolean add(GIS_element arg0) {
-		return layer.add(arg0);
+		return layer.add((MyGIS_Element) arg0);
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
-		return layer.addAll(arg0);
+		return layer.addAll((Collection<? extends MyGIS_Element>) arg0);
 	}
 
 	@Override
@@ -107,8 +110,8 @@ public class MyGIS_layer implements GIS_layer {
 	}
 
 	@Override
-	public Meta_data get_Meta_data() {
-		return null;
+	public MyMeta_data_layer get_Meta_data() {
+		return this.data;
 	}
 
 }

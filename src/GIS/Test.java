@@ -1,6 +1,7 @@
 package GIS;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 public class Test {
 
@@ -31,26 +32,21 @@ public class Test {
 		MyGIS_Element e12 = new MyGIS_Element(
 				"e8:94:f6:e2:6e:4b,frank,[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS],2017-12-01 11:00:34,6,-65,32.17019624834832,34.81245570309557,29.861150924216155,3,WIFI");
 
-		MyGIS_layer l = new MyGIS_layer();
-		l.add(e1);
-		l.add(e2);
-		l.add(e3);
-		l.add(e4);
-		l.add(e5);
-		l.add(e6);
-
-		MyGIS_layer t = new MyGIS_layer();
-		t.add(e7);
-		t.add(e8);
-		t.add(e9);
-		t.add(e10);
-		t.add(e11);
-		t.add(e12);
-
-		MyGIS_layer[] s = {l,t};
- 		
-		MyGIS_project pro = new MyGIS_project(s);
-		System.out.println(pro.toString());
+		ArrayList<GIS_element> x = new ArrayList<GIS_element>();
+		x.add(e1);
+		x.add(e2);
+		x.add(e3);
+		x.add(e4);
+		x.add(e5);
+		x.add(e6);
+		ArrayList<MyGIS_Element> y = new ArrayList<MyGIS_Element>();
+		
+		MyGIS_layer c = new MyGIS_layer(x);
+		
+		
+		
+	//	MyGIS_project pro = new MyGIS_project(s);
+		System.out.println(e6.toString());
 	}
 
 }

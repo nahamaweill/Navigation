@@ -49,18 +49,51 @@ public class Filewalker {
     return ans;
     }
     
+    public static MyGIS_layer creat_Layer (ArrayList<String[]> layer)
+    {
+    	MyGIS_Element element;
+    	ArrayList<GIS_element> ans = new ArrayList<GIS_element>();
+    	for (int i = 2; i < layer.size(); i++) {
+    		element = creat_Element(layer.get(i));
+    		System.out.println(element.toString());
+    		ans.add(element);
+		}
+		MyGIS_layer p1 = new MyGIS_layer(ans);		
+//    	System.out.println(p1.toString());
+    	return p1;
+    	
+    }
+    
+    public static MyGIS_Element creat_Element (String[] element)
+    {
+    	String full="";
+    	for (int i = 0; i < element.length-1; i++) {
+			full= full + element[i] + ",";
+		}
+    	full = full + element[element.length-1];
+//    	System.out.println(full);
+    	MyGIS_Element ans = new MyGIS_Element(full);
+    	return ans;
+    }
+
+    
 
 //    public static 
     
     public static void main(String[] args) throws Exception {
         Filewalker fw = new Filewalker();
-        ArrayList<String> h = fw.walk("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data" );
-        ArrayList<String[]> ans =  loadCsvLine("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data\\WigleWifi_20171201110209.csv");
-        for (int i = 0; i < ans.size(); i++) {
-        	for (int j = 0; j < ans.get(i).length; j++) {
-			System.out.println(ans.get(i)[j].toString());
-        	}
+        ArrayList<String> h = fw.walk("C:\\Users\\nahama\\Desktop\\Ex2\\Ex2\\data");
+        MyGIS_layer[] layers = new MyGIS_layer[2];
+//		MyGIS_layer p1 = null;		
+        for (int i = 0; i < h.size(); i++) {
+            ArrayList<String[]> ans =  loadCsvLine(h.get(i));
+            MyGIS_layer layer= creat_Layer (ans);
+            layers[i]= layer;
+            System.out.println("project: ");
+            System.out.println("");
 		}
+		MyGIS_project pol = new MyGIS_project(layers);
+		System.out.println(pol.toString());
         
         
 		}

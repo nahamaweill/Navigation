@@ -352,6 +352,9 @@ public class Point3D implements Geom_element, Serializable
 	public final static int EARTH_R=6371000;
 	public final static double R = 0.000008993;
 
+	/**
+	 * The function change the point gps from coordinates geometric to cartesian
+	 */
 	public void chang_Geometric_To_Cart()
 	{
 		//changing the point gps from coordinates geometric to cartesian
@@ -381,6 +384,9 @@ public class Point3D implements Geom_element, Serializable
 		this._x= this.x()*R/ Math.cos(this.y()*(Math.PI/180));
 		
 	}
+	/** The function change the point gps from coordinates cartesian to geometric
+	 * 
+	 */
 	
 	public void chang_Cart_To_Geometric()
 	{

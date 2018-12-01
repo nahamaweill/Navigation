@@ -100,7 +100,8 @@ public class MyGIS_project implements GIS_project {
 	public String toString() {
 		String h = "MyGIS_project : \n\n";
 		for (int i = 0; i < listLayer.size(); i++) {
-			h = h + listLayer.get(i).toString() + " data = \n" + data.toString();
+			h = h + listLayer.get(i).toString();
+			//+ " data = \n" + data.toString();
 		}
 		return h;
 	}

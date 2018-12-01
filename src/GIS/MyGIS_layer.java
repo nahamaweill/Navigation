@@ -10,6 +10,10 @@ public class MyGIS_layer implements GIS_layer {
 	private ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
 	private MyMeta_data_layer data = new MyMeta_data_layer();
 
+	/**
+	 * A constructor that get a Array List of GIS elements.
+	 * @param x Array List of GIS elements
+	 */
 	public MyGIS_layer(ArrayList<GIS_element> x) {
 		for (int i = 0; i < x.size(); i++) {
 			layer.add(x.get(i));
@@ -17,6 +21,15 @@ public class MyGIS_layer implements GIS_layer {
 		}
 	}
 
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @param a
+	 */
 	public MyGIS_layer(Set<GIS_element> a) {
 		Iterator<GIS_element> iter = a.iterator();
 		while (iter.hasNext()) {
@@ -26,6 +39,10 @@ public class MyGIS_layer implements GIS_layer {
 		}
 	}
 
+	/**
+	 * A constructor that get a Array of Strings of element
+	 * @param s Array of Strings of element
+	 */
 	public MyGIS_layer(String[] s) {
 		for (int i = 0; i < s.length; i++) {
 			MyGIS_Element ans = new MyGIS_Element(s[i]);
@@ -33,33 +50,64 @@ public class MyGIS_layer implements GIS_layer {
 			data.add((MyMeta_data) ans.getData());
 		}
 	}
-
+	/**
+	 * That function add a GIS element to the GIS layer
+	 * @param the GIS_Element to add
+	 */
+	
 	@Override
 	public boolean add(GIS_element arg0) {
 		return layer.add((MyGIS_Element) arg0);
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
 		return layer.addAll((Collection<? extends MyGIS_Element>) arg0);
 	}
+	/**
+	 * This function clear the layer
+	 */
 
 	@Override
 	public void clear() {
 		layer.clear();
 	}
+	/**
+	 * This function check if the layer contain the object args
+	 * @param arg0 the object to check
+	 * @return True of the layer contain the object, false otherwise 
+	 */
 
 	@Override
 	public boolean contains(Object arg0) {
 		return layer.contains(arg0);
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public boolean containsAll(Collection<?> arg0) {
 		return layer.containsAll(arg0);
 	}
-
+	/**
+	 * The function check if the layer is empty
+	 * @return true if the layer is empty and false otherwise
+	 */
 	@Override
 	public boolean isEmpty() {
 		return layer.isEmpty();

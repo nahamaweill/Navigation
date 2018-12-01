@@ -12,6 +12,12 @@ import File_format.Csv2kml;;
 
 public class Filewalker {
 
+	/**
+	 * 
+	 * @param csvFile
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
 		String csvSplitBy = ",";
@@ -29,6 +35,7 @@ public class Filewalker {
 		}
 		return data;
 	}
+	
 
 	public ArrayList<String> walk(String path) throws Exception {
 
@@ -50,10 +57,14 @@ public class Filewalker {
 		}
 		return ans;
 	}
-
+	/**
+	 * This function create a MyGIS project from the file csv.
+	 * @param file csv with the data of the project
+	 * @return a MyGIS project
+	 * @throws Exception
+	 */
 	public static MyGIS_project creat_project(ArrayList<String> file) throws Exception {
 		MyGIS_layer[] layers = new MyGIS_layer[file.size()];
-//		MyGIS_layer p1 = null;		
 		for (int i = 0; i < file.size(); i++) {
 			ArrayList<String[]> ans = loadCsvLine(file.get(i));
 			MyGIS_layer layer = creat_Layer(ans);
@@ -61,10 +72,14 @@ public class Filewalker {
 			System.out.println("project: ");
 			System.out.println("");
 		}
-		MyGIS_project pol = new MyGIS_project(layers);
-		return pol;
+		MyGIS_project project = new MyGIS_project(layers);
+		return project;
 	}
-
+	/**
+	 * This function create a MyGIS layer from the file csv.
+	 * @param the data of the layer from the file
+	 * @return a MyGIS layer
+	 */
 	public static MyGIS_layer creat_Layer(ArrayList<String[]> layer) {
 		MyGIS_Element element;
 		ArrayList<GIS_element> ans = new ArrayList<GIS_element>();
@@ -73,28 +88,30 @@ public class Filewalker {
 			System.out.println(element.toString());
 			ans.add(element);
 		}
-		MyGIS_layer p1 = new MyGIS_layer(ans);
-//    	System.out.println(p1.toString());
-		return p1;
+		MyGIS_layer lay = new MyGIS_layer(ans);
+		return lay;
 
 	}
-
+	/**
+	 * This function create a MyGIS element from the file csv.
+	 * @param the data of the element from the file
+	 * @return a MyGIS element
+	 */
 	public static MyGIS_Element creat_Element(String[] element) {
 		String full = "";
 		for (int i = 0; i < element.length - 1; i++) {
 			full = full + element[i] + ",";
 		}
 		full = full + element[element.length - 1];
-//    	System.out.println(full);
-		MyGIS_Element ans = new MyGIS_Element(full);
-		return ans;
+		MyGIS_Element elem = new MyGIS_Element(full);
+		return elem;
 	}
 
 //    public static 
 
 	public static void main(String[] args) throws Exception {
 		Filewalker fw = new Filewalker();
-		ArrayList<String> h = fw.walk("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
+		ArrayList<String> h = fw.walk("C:\\Users\\nahama\\Desktop\\Ex2\\Ex2\\data");
 		MyGIS_project ans = creat_project(h);
 
 		System.out.println(ans.toString());

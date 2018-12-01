@@ -10,41 +10,69 @@ public class MyGIS_Element implements GIS_element {
 
 	private Point3D point;
 	private MyMeta_data data;
-
+	/**
+	 * A defaultiv constructor
+	 */
 	public MyGIS_Element() {
 		point = new Point3D(0, 0, 0);
 		data = null;
 	}
+	/**
+	 * A copy constructor
+	 * @param Other MyGIS_Element object
+	 */
 
 	public MyGIS_Element(MyGIS_Element Other) {
 		point = new Point3D(Other.point);
 		this.data.setDataView(Other.data.getDataView());
 	}
+	/**
+	 * A constructor with String
+	 * @param s the String
+	 */
 
 	public MyGIS_Element(String s) {
 		this.data = new MyMeta_data(s);
 		this.point = data.getPoint();
 	}
+	/**
+	 * The function get the point
+	 * @return the point
+	 */
 
 	public Geom_element getGeom() {
 		return this.point;
 	}
+	/**
+	 * The function get the data
+	 * @return the data
+	 */
 
 	@Override
 	public Meta_data getData() {
 		return this.data;
 
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public void translate(Point3D vec) {
 		point.add(vec);
 	}
-
+	/**
+	 * the function return a String of all the data of the element
+	 * @return the data of the element
+	 */
 	@Override
 	public String toString() {
 		return "\n MyGIS_Element :\n " + data.toString()  ;
 	}
 
-	
+
 }

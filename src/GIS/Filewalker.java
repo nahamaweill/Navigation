@@ -80,8 +80,6 @@ public class Filewalker {
 			ArrayList<String[]> ans = loadCsvLine(file.get(i));
 			MyGIS_layer layer = creat_Layer(ans);
 			layers[i] = layer;
-			System.out.println("project: ");
-			System.out.println("");
 		}
 		MyGIS_project project = new MyGIS_project(layers);
 		return project;
@@ -97,7 +95,6 @@ public class Filewalker {
 		ArrayList<GIS_element> ans = new ArrayList<GIS_element>();
 		for (int i = 2; i < layer.size(); i++) {
 			element = creat_Element(layer.get(i));
-			System.out.println(element.toString());
 			ans.add(element);
 		}
 		MyGIS_layer lay = new MyGIS_layer(ans);
@@ -124,10 +121,12 @@ public class Filewalker {
 
 	public static void main(String[] args) throws Exception {
 		Filewalker fw = new Filewalker();
-		ArrayList<String> h = fw.walk("C:\\Users\\nahama\\Desktop\\Ex2\\Ex2\\data");
+		ArrayList<String> h = fw.walk("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
 		MyGIS_project ans = creat_project(h);
 
 		System.out.println(ans.toString());
+		ans.newProjectkml("ans.kml");
+
 
 	}
 

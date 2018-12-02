@@ -1,11 +1,12 @@
 package GIS;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
 public class Test {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, FileNotFoundException {
 
 		MyGIS_Element e1 = new MyGIS_Element(
 				"80:26:89:0d:4f:84,DIR-825-4f83,[WPA2-PSK-CCMP][WPS][ESS],2017-12-01 10:50:05,1,-68,32.17244003231061,34.81291470608912,31.60427366454716,3,WIFI");
@@ -56,7 +57,7 @@ public class Test {
 		MyGIS_project pol = new MyGIS_project(ans);
 		
 		//System.out.println(pol.toString());
-		System.out.println(pol.project2kml());
+		pol.newProjectkml("h.kml");
 	}
 
 }

@@ -245,15 +245,17 @@ public class MyGIS_project implements GIS_project {
 		String[] d;
 		String ans = "";
 		for (int i = 0; i < k.length; i++) {
-			ans = "<Placemark>\n" + "<name>" + data.get(i)[1] + "</name>\n" + "<description>" + data.get(i)[10]
-					+ "</description>\n" + "<Point><coordinates>" + data.get(i)[7] + "," + data.get(i)[6] + ","
-					+ data.get(i)[8] + "</coordinates></Point>\n" + "<time>" + data.get(i)[3] + "</time></Placemark>\n";
+			d = k[i].split(",");
+			ans = "<Placemark>\n" + "<name>" + d[1] + "</name>\n" + "<description>" + d[10]
+					+ "</description>\n" + "<Point><coordinates>" + d[7] + "," + d[6] + ","
+					+ d[8] + "</coordinates></Point>\n" + "<time>" + d[3] + "</time></Placemark>\n";
 			s = s + ans;
 		}
+		return ans;
 	}
 
-	public void newProjectkml(String File, String newFileLocation) throws FileNotFoundException {
-		String s = this.project2kml();
+	public void newProjectkml(String newFileLocation) throws FileNotFoundException {
+		String s = this.csv2kml_p();
 		try {
 			PrintWriter pw = new PrintWriter(new File(newFileLocation));
 			pw.write(startKml_untill_3_line);

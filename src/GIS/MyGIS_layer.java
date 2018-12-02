@@ -22,10 +22,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
+	 * A constructor 
 	 * 
 	 * 
 	 * @param a
@@ -61,12 +58,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.add((MyGIS_Element) arg0);
 	}
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * That function add a collection to the GIS layer
+	 * @param a collection to add
+	 * @return true if the collection was added
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -93,12 +87,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.contains(arg0);
 	}
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * This function check if the layer contain the collection arg0
+	 * @param arg0 the collection to check
+	 * @return True if the layer contain this collection, false otherwise 
 	 */
 
 	@Override
@@ -127,17 +118,15 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * This function remove an Object from the layer
 	 * @param arg0 the object to remove
+	 * @return true if the object was removed' false otherwise
 	 */
 	@Override
 	public boolean remove(Object arg0) {
 		return layer.remove(arg0);
 	}
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * This function remove an Object from the layer
+	 * @param arg0 the object to remove
 	 */
 
 	@Override

@@ -17,7 +17,7 @@ public class MyGIS_project implements GIS_project {
 		data = new MyMeta_data_project();
 	}
 	/**
-	 * A consrtuctor that get a Array List of Array of Strings
+	 * A constructor that get a Array List of Array of Strings
 	 * @param s the Array List of Array of Strings
 	 */
 

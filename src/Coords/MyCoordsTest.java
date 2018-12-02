@@ -17,6 +17,9 @@ class MyCoordsTest {
 		Point3D ans= p.add(p1, vec);
 		if (!p2.equals(ans))
 			fail("The point p2 and the point ans sould be equals");
+		
+//		Point3D ans= new Point3D(vec.x()*-1,vec.y()*-1, vec.z()*-1);
+
 	}
 
 	@Test

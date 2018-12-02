@@ -11,7 +11,8 @@ public class MyGIS_layer implements GIS_layer {
 	 MyMeta_data_layer data = new MyMeta_data_layer();
 
 	/**
-	 * A constructor that get a Array List of GIS elements.
+	 * A constructor that get a Array List of GIS elements
+	 * 
 	 * @param x Array List of GIS elements
 	 */
 	public MyGIS_layer(ArrayList<GIS_element> x) {
@@ -22,10 +23,9 @@ public class MyGIS_layer implements GIS_layer {
 	}
 
 	/**
-	 * A constructor 
+	 * A constructor that get a collection of GIS elements 
 	 * 
-	 * 
-	 * @param a
+	 * @param a collection of GIS elements
 	 */
 	public MyGIS_layer(Set<GIS_element> a) {
 		Iterator<GIS_element> iter = a.iterator();
@@ -38,6 +38,7 @@ public class MyGIS_layer implements GIS_layer {
 
 	/**
 	 * A constructor that get a Array of Strings of element
+	 * 
 	 * @param s Array of Strings of element
 	 */
 	public MyGIS_layer(String[] s) {
@@ -49,6 +50,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * That function add a GIS element to the GIS layer
+	 * 
 	 * @param the GIS_Element to add
 	 * @return true if the element was added
 	 */
@@ -59,6 +61,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * That function add a collection to the GIS layer
+	 * 
 	 * @param a collection to add
 	 * @return true if the collection was added
 	 */
@@ -78,6 +81,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * This function check if the layer contain the object arg0
+	 * 
 	 * @param arg0 the object to check
 	 * @return True if the layer contain the object, false otherwise 
 	 */
@@ -88,6 +92,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * This function check if the layer contain the collection arg0
+	 * 
 	 * @param arg0 the collection to check
 	 * @return True if the layer contain this collection, false otherwise 
 	 */
@@ -98,6 +103,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * The function check if the layer is empty
+	 * 
 	 * @return true if the layer is empty and false otherwise
 	 */
 	@Override
@@ -105,11 +111,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.isEmpty();
 	}
 	/**
+	 * This function return an Array List pointer
 	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * @return the Array List pointer
 	 */
 	@Override
 	public Iterator<GIS_element> iterator() {
@@ -117,6 +121,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * This function remove an Object from the layer
+	 * 
 	 * @param arg0 the object to remove
 	 * @return true if the object was removed, false otherwise
 	 */
@@ -125,8 +130,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.remove(arg0);
 	}
 	/**
-	 * This function remove an Object from the layer
-	 * @param arg0 the object to remove
+	 * This function remove all the elements from the layer that are contained in the collection
+	 * 
+	 * @param arg0 the collection to remove
 	 */
 
 	@Override
@@ -134,10 +140,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.removeAll(arg0);
 	}
 	/**
+	 * This function remove all the elements from the layer that are contained in the collection
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @param arg0 the collection to remove
 	 */
 
 	@Override
@@ -146,6 +151,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * This function return the size of the layer
+	 * 
 	 * @param the size of the layer
 	 */
 
@@ -154,10 +160,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.size();
 	}
 	/**
+	 * This function converse the Array List to a Array
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @return the Array after conversion 
 	 */
 
 	@Override
@@ -165,10 +170,9 @@ public class MyGIS_layer implements GIS_layer {
 		return layer.toArray();
 	}
 	/**
+	 * This function returns an Array containing all of the elements in this Array List
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @return the new Array
 	 */
 
 	@Override
@@ -178,6 +182,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * 
 	 * The function return a String of all the data of the layer
+	 * 
 	 * @return the data of the layer
 	 */
 
@@ -191,6 +196,7 @@ public class MyGIS_layer implements GIS_layer {
 	}
 	/**
 	 * This function return the data of the layer
+	 * 
 	 * @return the data of the layer
 	 */
 

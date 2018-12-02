@@ -17,6 +17,7 @@ public class MyMeta_data_layer {
 	}
 	/**
 	 * A constructor that get a Array of Strings of element
+	 * 
 	 * @param s Array of Strings of element
 	 */
 	
@@ -28,6 +29,7 @@ public class MyMeta_data_layer {
 	}
 	/**
 	 * A constructor that get a Array List of My meta data of element
+	 * 
 	 * @param data a Array List of My meta data of element
 	 */
 	
@@ -39,6 +41,7 @@ public class MyMeta_data_layer {
 	}
 	/**
 	 * That function add a My meta data element to the layer
+	 * 
 	 * @param the My meta data element to add
 	 * 
 	 */
@@ -47,8 +50,8 @@ public class MyMeta_data_layer {
 		data.add(arg0);
 	}
 	/**
-	 * 
 	 * The function return a String of all the data of the layer
+	 * 
 	 * @return the data of the layer
 	 */
 

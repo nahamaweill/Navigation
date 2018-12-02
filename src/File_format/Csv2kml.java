@@ -17,7 +17,7 @@ public class Csv2kml {
 	final String endKml_2_lines = "</Folder>\n</Document></kml>";
 
 	/**
-	 * This function read a file csv and return a Array List of Array of strings, every array contain a line in the file.
+	 * This function read a file csv and return a Array List of Array of strings, every array contain a line in the file
 	 * 
 	 * @param csvFile that which provides us the data
 	 * @return data a Array List of Array of strings, every array contain a line in the file.
@@ -39,7 +39,7 @@ public class Csv2kml {
 		return data;
 	}
 	/**
-	 * This function create the kml format from every line in the csv file.
+	 * This function create the kml format from every line in the csv file
 	 * 
 	 * @param csvFile  the lines in the file csv
 	 * @return s String of all the lines of the kml format
@@ -60,7 +60,7 @@ public class Csv2kml {
 		return s;
 	}
 	/**
-	 * This function create a  kml file from the csv file.
+	 * This function create a kml file from the csv file
 	 * 
 	 * @param newFile name of the kml created from the csv file
 	 * @param csvFile from with folder to take the csv file

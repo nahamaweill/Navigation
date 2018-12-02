@@ -68,11 +68,10 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * That function add a collection to the GIS project
 	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * @param a collection to add
+	 * @return true if the collection was added
 	 */
 
 	@Override
@@ -100,10 +99,10 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * This function check if the project contain the collection arg0
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @param arg0 the collection to check
+	 * @return True if the project contain this collection, false otherwise 
 	 */
 	@Override
 	public boolean containsAll(Collection<?> arg0) {
@@ -122,9 +121,9 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * This function return an Array List pointer
 	 * 
-	 * 
-	 * 
+	 * @return the Array List pointer
 	 */
 
 	@Override
@@ -144,10 +143,9 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * This function remove all the elements from the project that are contained in the collection
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @param arg0 the collection to remove
 	 */
 
 	@Override
@@ -156,10 +154,9 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * This function remove all the elements from the project that are contained in the collection
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @param arg0 the collection to remove
 	 */
 
 	@Override
@@ -179,22 +176,19 @@ public class MyGIS_project implements GIS_project {
 	}
 
 	/**
+	 * This function converse the Array List to a Array
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @return the Array after conversion 
 	 */
 
 	@Override
 	public Object[] toArray() {
 		return listLayer.toArray();
 	}
-
 	/**
+	 * This function returns an Array containing all of the elements in this Array List
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @return the new Array
 	 */
 
 	@Override
@@ -221,7 +215,7 @@ public class MyGIS_project implements GIS_project {
 	/**
 	 * This function return the data of the project
 	 * 
-	 * @return the data of the project
+	 * @return ans the data of the project
 	 */
 
 	@Override
@@ -238,6 +232,11 @@ public class MyGIS_project implements GIS_project {
 		}
 		return ans;
 	}
+	/**
+	 * This function create the kml format from a project
+	 * 
+	 * @return ans String of kml format of all the project
+	 */
 
 	public String csv2kml_p() {
 		String s = project2kml();
@@ -253,6 +252,12 @@ public class MyGIS_project implements GIS_project {
 		}
 		return ans;
 	}
+	/**
+	 * This function create a kml file from the project
+	 * 
+	 * @param newFileLocation the location were we want to create the kml file
+	 * @throws FileNotFoundException
+	 */
 
 	public void newProjectkml(String newFileLocation) throws FileNotFoundException {
 		String s = this.csv2kml_p();

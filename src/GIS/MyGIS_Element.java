@@ -19,6 +19,7 @@ public class MyGIS_Element implements GIS_element {
 	}
 	/**
 	 * A copy constructor
+	 * 
 	 * @param Other MyGIS_Element object
 	 */
 
@@ -28,6 +29,7 @@ public class MyGIS_Element implements GIS_element {
 	}
 	/**
 	 * A constructor with String
+	 * 
 	 * @param s the String
 	 */
 
@@ -37,6 +39,7 @@ public class MyGIS_Element implements GIS_element {
 	}
 	/**
 	 * The function get the point
+	 * 
 	 * @return the point
 	 */
 
@@ -45,6 +48,7 @@ public class MyGIS_Element implements GIS_element {
 	}
 	/**
 	 * The function get the data
+	 * 
 	 * @return the data
 	 */
 
@@ -54,10 +58,9 @@ public class MyGIS_Element implements GIS_element {
 
 	}
 	/**
+	 * This function translate a vector 3D to a gps point
 	 * 
-	 * 
-	 * 
-	 * 
+	 * @param vec that we want to translate to a gps point
 	 * 
 	 */
 
@@ -66,7 +69,8 @@ public class MyGIS_Element implements GIS_element {
 		point.add(vec);
 	}
 	/**
-	 * the function return a String of all the data of the element
+	 * The function return a String of all the data of the element
+	 * 
 	 * @return the data of the element
 	 */
 	@Override

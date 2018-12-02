@@ -53,6 +53,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * That function add a GIS element to the GIS layer
 	 * @param the GIS_Element to add
+	 * @return true if the element was added
 	 */
 	
 	@Override
@@ -82,9 +83,9 @@ public class MyGIS_layer implements GIS_layer {
 		layer.clear();
 	}
 	/**
-	 * This function check if the layer contain the object args
+	 * This function check if the layer contain the object arg0
 	 * @param arg0 the object to check
-	 * @return True of the layer contain the object, false otherwise 
+	 * @return True if the layer contain the object, false otherwise 
 	 */
 
 	@Override
@@ -112,41 +113,84 @@ public class MyGIS_layer implements GIS_layer {
 	public boolean isEmpty() {
 		return layer.isEmpty();
 	}
-
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	@Override
 	public Iterator<GIS_element> iterator() {
 		return layer.iterator();
 	}
-
+	/**
+	 * This function remove an Object from the layer
+	 * @param arg0 the object to remove
+	 */
 	@Override
 	public boolean remove(Object arg0) {
 		return layer.remove(arg0);
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
 		return layer.removeAll(arg0);
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public boolean retainAll(Collection<?> arg0) {
 		return layer.retainAll(arg0);
 	}
+	/**
+	 * This function return the size of the layer
+	 * @param the size of the layer
+	 */
 
 	@Override
 	public int size() {
 		return layer.size();
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public Object[] toArray() {
 		return layer.toArray();
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 	@Override
 	public <T> T[] toArray(T[] arg0) {
 		return layer.toArray(arg0);
 	}
+	/**
+	 * 
+	 * The function return a String of all the data of the layer
+	 * @return the data of the layer
+	 */
 
 	@Override
 	public String toString() {
@@ -156,6 +200,10 @@ public class MyGIS_layer implements GIS_layer {
 		}
 		return h;
 	}
+	/**
+	 * This function return the data of the layer
+	 * @return the data of the layer
+	 */
 
 	@Override
 	public MyMeta_data_layer get_Meta_data() {

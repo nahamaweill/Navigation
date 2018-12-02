@@ -55,7 +55,8 @@ public class Test {
 		ans[1] = p2;
 		MyGIS_project pol = new MyGIS_project(ans);
 		
-		System.out.println(pol.toString());
+		//System.out.println(pol.toString());
+		System.out.println(pol.project2kml());
 	}
 
 }

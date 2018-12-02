@@ -13,9 +13,10 @@ import File_format.Csv2kml;;
 public class Filewalker {
 
 	/**
+	 * This function read a file csv and return a Array List of Array of strings, every array contain a line in the file.
 	 * 
-	 * @param csvFile
-	 * @return
+	 * @param csvFile that which provides us the data
+	 * @return data a Array List of Array of strings, every array contain a line in the file.
 	 * @throws FileNotFoundException
 	 */
 	public static ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
@@ -35,8 +36,17 @@ public class Filewalker {
 		}
 		return data;
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @param path
+	 * @return
+	 * @throws Exception
+	 */
 	
-
 	public ArrayList<String> walk(String path) throws Exception {
 
 		ArrayList<String> ans = new ArrayList<String>();
@@ -59,6 +69,7 @@ public class Filewalker {
 	}
 	/**
 	 * This function create a MyGIS project from the file csv.
+	 * 
 	 * @param file csv with the data of the project
 	 * @return a MyGIS project
 	 * @throws Exception
@@ -77,6 +88,7 @@ public class Filewalker {
 	}
 	/**
 	 * This function create a MyGIS layer from the file csv.
+	 * 
 	 * @param the data of the layer from the file
 	 * @return a MyGIS layer
 	 */
@@ -94,6 +106,7 @@ public class Filewalker {
 	}
 	/**
 	 * This function create a MyGIS element from the file csv.
+	 * 
 	 * @param the data of the element from the file
 	 * @return a MyGIS element
 	 */

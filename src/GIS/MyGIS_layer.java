@@ -118,7 +118,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * This function remove an Object from the layer
 	 * @param arg0 the object to remove
-	 * @return true if the object was removed' false otherwise
+	 * @return true if the object was removed, false otherwise
 	 */
 	@Override
 	public boolean remove(Object arg0) {

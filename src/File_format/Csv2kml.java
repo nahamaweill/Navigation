@@ -11,11 +11,18 @@ import java.util.ArrayList;
 
 public class Csv2kml {
 
-	final static String startKml_untill_3_line = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+	final String startKml_untill_3_line = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 			+ "<kml xmlns=\"http://www.opengis.net/kml/2.2\">" + "\n" + "<Document><Folder>\n";
 
-	final static String endKml_2_lines = "</Folder>\n</Document></kml>";
+	final String endKml_2_lines = "</Folder>\n</Document></kml>";
 
+	/**
+	 * This function read a file csv and return a Array List of Array of strings, every array contain a line in the file.
+	 * 
+	 * @param csvFile that which provides us the data
+	 * @return data a Array List of Array of strings, every array contain a line in the file.
+	 * @throws FileNotFoundException
+	 */
 	public ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
 		String csvSplitBy = ",";
@@ -31,6 +38,13 @@ public class Csv2kml {
 		}
 		return data;
 	}
+	/**
+	 * This function create the kml format from every line in the csv file.
+	 * 
+	 * @param csvFile  the lines in the file csv
+	 * @return s String of all the lines of the kml format
+	 * @throws FileNotFoundException
+	 */
 
 	public String newKmlFile(String csvFile) throws FileNotFoundException {
 		ArrayList<String[]> data = loadCsvLine(csvFile);
@@ -45,6 +59,13 @@ public class Csv2kml {
 		s = s + endKml_2_lines;
 		return s;
 	}
+	/**
+	 * This function create a  kml file from the csv file.
+	 * 
+	 * @param newFile name of the kml created from the csv file
+	 * @param csvFile from with folder to take the csv file
+	 * @throws FileNotFoundException
+	 */
 
 	public void newOBJkml(String newFile, String csvFile) throws FileNotFoundException {
 		String s = newKmlFile(csvFile);

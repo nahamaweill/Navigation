@@ -1,10 +1,16 @@
 package GIS;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyMeta_data_project {
 
 	ArrayList<MyMeta_data_layer> data = new ArrayList<MyMeta_data_layer>();
+	long UTC;
+	
+	public MyMeta_data_project() {
+		UTC = new Date().getTime();
+	}
 
 	/**
 	 * 

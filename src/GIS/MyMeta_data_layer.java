@@ -1,16 +1,19 @@
 package GIS;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyMeta_data_layer {
 
 	ArrayList<MyMeta_data> data = new ArrayList<MyMeta_data>();
+	long UTC;
 	
 	/**
 	 * A defaultiv constructor
 	 */
 	public MyMeta_data_layer() {
 		data = new ArrayList<MyMeta_data>();
+		UTC = new Date().getTime();
 	}
 	/**
 	 * A constructor that get a Array of Strings of element
@@ -21,6 +24,7 @@ public class MyMeta_data_layer {
 		for (int i = 0; i < s.length; i++) {
 			data.add(new MyMeta_data(s[i]));
 		}
+		UTC = new Date().getTime();
 	}
 	/**
 	 * A constructor that get a Array List of My meta data of element
@@ -31,6 +35,7 @@ public class MyMeta_data_layer {
 		for (int i = 0; i < data.size(); i++) {
 			data.add(new MyMeta_data(data.get(i)));
 		}
+		UTC = new Date().getTime();
 	}
 	/**
 	 * That function add a My meta data element to the layer

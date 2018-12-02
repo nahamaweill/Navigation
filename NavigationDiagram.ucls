@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <package id="1" language="java" name="Coords" project="Navigtion" file="/Navigtion/src/Coords" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="379" y="295"/>    
+    <position height="-1" width="-1" x="440" y="326"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="2" language="java" name="File_format" project="Navigtion" file="/Navigtion/src/File_format" 
@@ -13,35 +13,70 @@
   </package>  
   <package id="3" language="java" name="Geom" project="Navigtion" file="/Navigtion/src/Geom" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="488" y="194"/>    
+    <position height="-1" width="-1" x="605" y="191"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="4" language="java" name="GIS" project="Navigtion" file="/Navigtion/src/GIS" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="387" y="89"/>    
+    <position height="-1" width="-1" x="434" y="98"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="5" language="java" name="GUI" project="Navigtion" file="/Navigtion/src/GUI" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="170" y="40"/>    
+    <position height="-1" width="-1" x="973" y="46"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="6" language="java" name="Threads" project="Navigtion" file="/Navigtion/src/Threads" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="585" y="37"/>    
+    <position height="-1" width="-1" x="977" y="-20"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <dependency id="7">    
+  <interface id="7" language="java" name="GIS.GIS_element" project="Navigtion" 
+    file="/Navigtion/src/GIS/GIS_element.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="108" width="191" x="67" y="-58"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="8" language="java" name="GIS.GIS_layer" project="Navigtion" file="/Navigtion/src/GIS/GIS_layer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="108" width="192" x="337" y="-56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="9" language="java" name="GIS.GIS_project" project="Navigtion" 
+    file="/Navigtion/src/GIS/GIS_project.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="107" width="193" x="588" y="-56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <dependency id="10">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="8">    
+  <dependency id="11">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="9">    
+  <dependency id="12">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="13">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

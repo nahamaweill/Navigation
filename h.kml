@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder>
+<Placemark>
+<name>frank</name>
+<description>WIFI</description>
+<Point><coordinates>34.81245570309557,32.17019624834832,29.861150924216155</coordinates></Point>
+<time>2017-12-01 11:00:34</time></Placemark>
+</Folder>
+</Document></kml>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder>
+<Placemark>
+<name>Ariel_University</name>
+<description>WIFI</description>
+<Point><coordinates>35.21135337,32.10488619,698</coordinates></Point>
+<time>2017-12-03 08:56:08</time></Placemark>
+</Folder>
+</Document></kml>

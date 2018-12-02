@@ -121,10 +121,10 @@ public class Filewalker {
 
 	public static void main(String[] args) throws Exception {
 		Filewalker fw = new Filewalker();
-		ArrayList<String> h = fw.walk("C:\\Users\\nahama\\Desktop\\Ex2\\Ex2\\data");
+		ArrayList<String> h = fw.walk("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
 		MyGIS_project ans = creat_project(h);
 
-		System.out.println(ans.toString());
+//		System.out.println(ans.toString());
 		ans.newProjectkml("ans.kml");
 
 

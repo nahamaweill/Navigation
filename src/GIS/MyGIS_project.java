@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -245,10 +246,9 @@ public class MyGIS_project implements GIS_project {
 		String ans = "";
 		for (int i = 0; i < k.length; i++) {
 			d = k[i].split(",");
-			ans = "<Placemark>\n" + "<name>" + d[1] + "</name>\n" + "<description>" + d[10]
+			ans = ans + "<Placemark>\n" + "<name>" + d[1] + "</name>\n" + "<description>" + d[10]
 					+ "</description>\n" + "<Point><coordinates>" + d[7] + "," + d[6] + ","
 					+ d[8] + "</coordinates></Point>\n" + "<time>" + d[3] + "</time></Placemark>\n";
-			s = s + ans;
 		}
 		return ans;
 	}

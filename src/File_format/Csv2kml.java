@@ -21,7 +21,7 @@ public class Csv2kml {
 	 * 
 	 * @param csvFile that which provides us the data
 	 * @return data a Array List of Array of strings, every array contain a line in the file.
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if it can't read the file
 	 */
 	public ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
@@ -43,7 +43,7 @@ public class Csv2kml {
 	 * 
 	 * @param csvFile  the lines in the file csv
 	 * @return s String of all the lines of the kml format
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if it can't read the file
 	 */
 
 	public String newKmlFile(String csvFile) throws FileNotFoundException {
@@ -64,7 +64,7 @@ public class Csv2kml {
 	 * 
 	 * @param newFile name of the kml created from the csv file
 	 * @param csvFile from with folder to take the csv file
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if it can't read the file
 	 */
 
 	public void newOBJkml(String newFile, String csvFile) throws FileNotFoundException {

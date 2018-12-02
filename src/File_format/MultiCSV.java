@@ -12,10 +12,10 @@ import java.util.stream.Stream;
 
 public class MultiCSV {
 /**
- * we take this code from https://stackoverflow.com/
+ * This function was taken from https://stackoverflow.com/
  * this code represents recursive reading of any folder
  * while using file array  
- * @param folder
+ * @param folder we want to read
  */
 	public static void listAllFiles(File folder) {
 		System.out.println("In listAllfiles(File) method");
@@ -36,10 +36,10 @@ public class MultiCSV {
 	}
 
 	/**
-	 * this function represents the lines according to the recursive reading function
+	 * This function represents the lines according to the recursive reading function
 	 * so,this function work only for one file every round
-	 * @param file
-	 * @throws IOException
+	 * @param file that we want to read 
+	 * @throws IOException if it can't read the file
 	 */
 	public static void readContent(File file) throws IOException {
 		System.out.println("read file " + file.getCanonicalPath());

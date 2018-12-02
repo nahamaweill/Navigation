@@ -7,21 +7,25 @@ public class MyMeta_data_project {
 
 	ArrayList<MyMeta_data_layer> data = new ArrayList<MyMeta_data_layer>();
 	long UTC;
-	
+	/**
+	 * The function gets a Universal Time Clock in millisecond
+	 * 
+	 */
 	public MyMeta_data_project() {
 		UTC = new Date().getTime();
 	}
 
-	/**
-	 * 
+	/** 
 	 * That function add a My meta data layer to the project
-	 * @param the My meta data layer to add
+	 * 
+	 * @param arg0 the My meta data layer to add
 	 */
 	public void add(MyMeta_data_layer arg0) {
 		data.add(arg0);
 	}
 	/**
 	 * The function return a String of all the data of the project
+	 * 
 	 * @return the data of the project
 	 */
 

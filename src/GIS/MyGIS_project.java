@@ -71,7 +71,7 @@ public class MyGIS_project implements GIS_project {
 	/**
 	 * That function add a collection to the GIS project
 	 * 
-	 * @param a collection to add
+	 * @param arg0 a collection to add
 	 * @return true if the collection was added
 	 */
 
@@ -168,7 +168,7 @@ public class MyGIS_project implements GIS_project {
 	/**
 	 * This function return the size of the project
 	 * 
-	 * @param the size of the project
+	 * @return the size of the project
 	 */
 
 	@Override
@@ -256,7 +256,7 @@ public class MyGIS_project implements GIS_project {
 	 * This function create a kml file from the project
 	 * 
 	 * @param newFileLocation the location were we want to create the kml file
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if it can't read the file
 	 */
 
 	public void newProjectkml(String newFileLocation) throws FileNotFoundException {

@@ -51,7 +51,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * That function add a GIS element to the GIS layer
 	 * 
-	 * @param the GIS_Element to add
+	 * @param arg0 the GIS_Element to add
 	 * @return true if the element was added
 	 */
 	
@@ -62,7 +62,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * That function add a collection to the GIS layer
 	 * 
-	 * @param a collection to add
+	 * @param arg0 a collection to add
 	 * @return true if the collection was added
 	 */
 
@@ -152,7 +152,7 @@ public class MyGIS_layer implements GIS_layer {
 	/**
 	 * This function return the size of the layer
 	 * 
-	 * @param the size of the layer
+	 * @return the size of the layer
 	 */
 
 	@Override

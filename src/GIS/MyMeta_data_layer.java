@@ -42,7 +42,7 @@ public class MyMeta_data_layer {
 	/**
 	 * That function add a My meta data element to the layer
 	 * 
-	 * @param the My meta data element to add
+	 * @param arg0 the My meta data element to add
 	 * 
 	 */
 

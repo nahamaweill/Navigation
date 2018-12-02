@@ -18,8 +18,6 @@ class MyCoordsTest {
 		if (!p2.equals(ans))
 			fail("The point p2 and the point ans sould be equals");
 		
-//		Point3D ans= new Point3D(vec.x()*-1,vec.y()*-1, vec.z()*-1);
-
 	}
 
 	@Test
@@ -62,7 +60,7 @@ class MyCoordsTest {
 		double azi= ans[0];
 		double elev= ans[1];
 		double dis= ans[2];
-		if (azi!=308.52949903084226 || elev!=0.040541419501888894 || dis!=493.4578015650176)
+		if (azi!=321.47050096915774 || elev!=2.322852232927616 || dis!=493.4578015650176)
 			fail("The azimouth or the elevation or the distance are not correct");
 		//
 	}

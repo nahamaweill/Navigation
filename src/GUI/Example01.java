@@ -18,7 +18,8 @@ import java.awt.event.*;
 public class Example01 extends Frame {
 /**
  * Instantiates an Example01 object.
- **/
+ * @param args the String input
+ */
 public static void main(String args[]) {
   new Example01();
 }

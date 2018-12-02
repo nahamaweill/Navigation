@@ -26,7 +26,6 @@ public class test {
 		Point3D p2=new Point3D(32.106352,35.205225,650);
 		double[] ans = p.azimuth_elevation_dist(p1, p2);
 		System.out.println("azi: "+ans[0]+" elev: "+ans[1]+" dis: "+ans[2]);
-
 		
 	}
 }

@@ -9,6 +9,8 @@ public class Point3D implements Geom_element, Serializable
 	private static final long serialVersionUID = 1L;
 	private double _x,_y,_z;
 
+	
+	
 	public Point3D(double x,double y,double z) 
 	{
 		_x=x;
@@ -151,7 +153,12 @@ public class Point3D implements Geom_element, Serializable
 	public final static int ONSEGMENT = 0,  LEFT = 1, RIGHT = 2, INFRONTOFA = 3, BEHINDB = 4, ERROR = 5;
 	public final static int DOWN = 6, UP = 7;
 
-	/** return up iff this point is above the SEGMENT (not the line) */
+	/** return up iff this point is above the SEGMENT (not the line) 
+	 * 
+	 * @param a represent a point
+	 * @param b represent a point
+	 * @return a line test 
+	 */
 	public int pointLineTest2(Point3D a, Point3D b)
 	{
 		int flag = this.pointLineTest(a,b);
@@ -179,23 +186,6 @@ public class Point3D implements Geom_element, Serializable
 		return flag;
 	}
 
-
-	/** pointLineTest <br>
-	test the following location of a point regards a line segment - all in 2D projection.<br><br>
-
-	ONSEGMENT:  �����a----+----b������                              <br> <br>
-
-	           +       +        +                              <br>
-	LEFT:	 �����a---------b������                              <br> <br>
-
-
-	RIGHT:	 �����a---------b������                              <br>
-    		   +      +        +                              <br> <br>
-
-	INFRONTOFA:  ��+��a---------b������                              <br>
-        BEHINDB:  �����a---------b����+�                              <br>
-	ERROR: a==b || a==null || b == null;                               <br>
-	 */
 
 	public int pointLineTest(Point3D a, Point3D b)
 	{
@@ -278,16 +268,24 @@ public class Point3D implements Geom_element, Serializable
 		_x = (center.x() +  radius * Math.cos(a+angle));
 		_y = (center.y() +  radius * Math.sin(a+angle));
 	}								
-	/** computes the angleXY between p1 and p2 in RADIANS: <br><br>
-	up:(PI/2)  , down (-PI/2) , right(0),  left(+- PI).   [-PI, +PI]	*/
+	/** 
+	 * computes the angleXY between p1 and p2 in RADIANS: <br><br>
+	 * up:(PI/2)  , down (-PI/2) , right(0),  left(+- PI).   [-PI, +PI]
+	 * @param p the point 
+	 * @return the angleXY
+	 */
 	public double angleXY(Point3D p)
 	{
 		if(p==null)
 			throw new RuntimeException("** Error: Point3D angle got null **");
 		return Math.atan2((p._y-_y), (p._x-_x));
 	}
-	/** computes the angleXY between p1 and p2 in RADIANS: <br><br>
-	up:(PI/2)  , down (1.5PI) , right(0),  left(PI).   [0,2PI].	*/
+	/** 
+	 * computes the angleXY between p1 and p2 in RADIANS: <br><br>
+	 * up:(PI/2)  , down (1.5PI) , right(0),  left(PI).   [0,2PI].
+	 * @param p the point 
+	 * @return the angleXY
+	 */
 	public double angleXY_2PI(Point3D p)
 	{
 		if(p==null)
@@ -297,14 +295,17 @@ public class Point3D implements Geom_element, Serializable
 			ans = 2*Math.PI+ans;
 		return ans;
 	}
-	/** computes the angleZ between p1 and p2 in RADIANS */ 							
+	/** computes the angleZ between p1 and p2 in RADIANS 
+	 * @param p the point 
+	 * @return the angleZ
+	 */
 	public double angleZ(Point3D p) 
 	{
 		if(p==null)
 			throw new RuntimeException("** Error: Point3D angleZ got null **");
 		return Math.atan2((p._z-_z), this.distance2D(p));
 	}	
-	/** return the (planer angle of the vector between this --> p, in DEGREES, in a
+	/** return the (planer angle of the vector between this -- p, in DEGREES, in a
 	 * compass order: north 0, east 90, south 180, west 270.
 	 * @param p is the end point of the vector (z value is ignored). 
 	 * @return angle in compass styye [0,360).
@@ -320,30 +321,43 @@ public class Point3D implements Geom_element, Serializable
 			ans = 450-a_deg;
 		return ans;
 	}
-	/** return the vertical angles in DEGREES of the vector this-->p
+	/** return the vertical angles in DEGREES of the vector this--p
 	 * 
-	 * */
+	 * @param p the point
+	 * @return the up angele
+	 */
 	public double up_angle(Point3D p)
 	{
 		double ans = 0;
 		ans = Math.atan2((p._z-_z), this.distance2D(p));
 		return Math.toDegrees(ans);
 	}
-	/** return the vertical angles in DEGREES of the vector this-->p, 
-	 *  @param h: is the extra height of the point p (used by GISElement).
-	 * */
+	/** 
+	 * return the vertical angles in DEGREES of the vector this--p, 
+	 * @param h: is the extra height of the point p (used by GISElement).
+	 * @param p represent a point
+	 * @return the up angle
+	 */
 	public double up_angle(Point3D p, double h)
 	{
 		double ans = 0;
 		ans = Math.atan2((p._z+h-_z), this.distance2D(p));
 		return Math.toDegrees(ans);
 	}
-	/** transform from radians to angles */
+	/** transform from radians to angles
+	 * 
+	 * @param a number radian
+	 * @return the number in degree
+	 */
 	public static double r2d(double a)
 	{
 		return Math.toDegrees(a);
 	}
-	/** transform from angles to radians */
+	/** transform from angles to radians
+	 * 
+	 * @param a number degree
+	 * @return the number in radian
+	 */
 	public static double d2r(double a)
 	{
 		return Math.toRadians(a);
@@ -359,45 +373,19 @@ public class Point3D implements Geom_element, Serializable
 	{
 		//changing the point gps from coordinates geometric to cartesian
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-//		this._x = this.d2r(_x);
-//		this._y = this.d2r(_y);
-//		this._z = this.d2r(_z);
-//
-//		this._x = EARTH_R * Math.cos(this._x) * Math.cos(this._y);
-//		this._y = EARTH_R * Math.cos(this._x) * Math.sin(this._y);
-//		this._z = EARTH_R *Math.sin(this._x);
-		
-//		double a=6378.1;
-//	    double b=6356.8;
-//	    double N;
-//	    double e= 1-(Math.pow(b, 2)/Math.pow(a, 2));
-//	    N= a/(Math.sqrt(1.0-(e*Math.pow(Math.sin(Math.toRadians(_x)), 2))));
-//	    double cosLatRad=Math.cos(Math.toRadians(_x));
-//	    double cosLongiRad=Math.cos(Math.toRadians(_y));
-//	    double sinLatRad=Math.sin(Math.toRadians(_x));
-//	    double sinLongiRad=Math.sin(Math.toRadians(_y));
-//	    this._x =(N+0.001*_z)*cosLatRad*cosLongiRad;
-//	    this._y =(N+0.001*_z)*cosLatRad*sinLongiRad;
-//	    this._z =((Math.pow(b, 2)/Math.pow(a, 2))*N+0.001*_z)*sinLatRad;
 		
 		this._y= this.y()*R;
 		this._x= this.x()*R/ Math.cos(this.y()*(Math.PI/180));
 		
 	}
-	/** The function change the point gps from coordinates cartesian to geometric
-	 * 
+	/** 
+	 * The function change the point gps from coordinates cartesian to geometric
 	 */
 	
 	public void chang_Cart_To_Geometric()
 	{
 		//changing the point gps from coordinates cartesian to geometric
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
-//		this._x = Math.asin(this._z/EARTH_R);
-//		this._y = Math.atan2(this._y, this._x);
-		
-//		this._x = this.r2d(_x);
-//		this._y = this.r2d(_y);
-//		this._z = this.r2d(_z);
 		
 		double y = this.y()/R;
 		double x =  (this.x()*Math.cos(this.y()*(Math.PI/180))/R);

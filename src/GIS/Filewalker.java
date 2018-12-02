@@ -17,7 +17,7 @@ public class Filewalker {
 	 * 
 	 * @param csvFile that which provides us the data
 	 * @return data a Array List of Array of strings, every array contain a line in the file.
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if it can't read the file
 	 */
 	public static ArrayList<String[]> loadCsvLine(String csvFile) throws FileNotFoundException {
 		String line = "";
@@ -37,14 +37,11 @@ public class Filewalker {
 		return data;
 	}
 	/**
+	 * The recursive function that walk on the folder and decide which file to read 
 	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param path
-	 * @return
-	 * @throws Exception
+	 * @param path the folder were the function walk
+	 * @return ans which file he read
+	 * @throws Exception if it can't read the file
 	 */
 	
 	public ArrayList<String> walk(String path) throws Exception {
@@ -72,7 +69,7 @@ public class Filewalker {
 	 * 
 	 * @param file csv with the data of the project
 	 * @return a MyGIS project
-	 * @throws Exception
+	 * @throws Exception if it can't read the file
 	 */
 	public static MyGIS_project creat_project(ArrayList<String> file) throws Exception {
 		MyGIS_layer[] layers = new MyGIS_layer[file.size()];
@@ -87,7 +84,7 @@ public class Filewalker {
 	/**
 	 * This function create a MyGIS layer from the file csv.
 	 * 
-	 * @param the data of the layer from the file
+	 * @param layer the data of the layer from the file
 	 * @return a MyGIS layer
 	 */
 	public static MyGIS_layer creat_Layer(ArrayList<String[]> layer) {
@@ -104,7 +101,7 @@ public class Filewalker {
 	/**
 	 * This function create a MyGIS element from the file csv.
 	 * 
-	 * @param the data of the element from the file
+	 * @param element the data of the element from the file
 	 * @return a MyGIS element
 	 */
 	public static MyGIS_Element creat_Element(String[] element) {
@@ -117,14 +114,11 @@ public class Filewalker {
 		return elem;
 	}
 
-//    public static 
 
 	public static void main(String[] args) throws Exception {
 		Filewalker fw = new Filewalker();
-		ArrayList<String> h = fw.walk("C:\\Users\\DELL\\Desktop\\Ex2\\Ex2\\data");
+		ArrayList<String> h = fw.walk("C:\\Users\\nahama\\Desktop\\Ex2\\Ex2\\data");
 		MyGIS_project ans = creat_project(h);
-
-//		System.out.println(ans.toString());
 		ans.newProjectkml("ans.kml");
 
 

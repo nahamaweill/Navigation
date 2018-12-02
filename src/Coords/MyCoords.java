@@ -80,7 +80,7 @@ public class MyCoords implements coords_converter {
 
 	/**
 	 * This function computes the polar representation of the 3D vector be
-	 * gps0-->gps1 the function calculate the azimuth, the elevation and the
+	 * gps0--gps1 the function calculate the azimuth, the elevation and the
 	 * distance we used:
 	 * https://he.wikipedia.org/wiki/%D7%90%D7%96%D7%99%D7%9E%D7%95%D7%98
 	 * http://www.damada.co.il/topics/math/db/trigo_right_triangle/trigo_right_triangle.shtml
@@ -91,32 +91,11 @@ public class MyCoords implements coords_converter {
 	 */
 	@Override
 	public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
-		// calculating the azimuth
-		double azi_x = gps1.x() - gps0.x();
-		double azi_y = gps1.y() - gps0.y();
-		double x = Math.abs(Math.atan(azi_y / azi_x)*(180/Math.PI));
-		
-		double azi=0;
-		if (azi_x>0 && azi_y>0)
-			azi = x;
-		else if (azi_x<0 && azi_y>0)
-			azi = 180-x;
-		else if (azi_x<0 && azi_y<0)
-			azi = 180+x;
-		else 
-			azi = 360-x;
-		
-
-		// calculating the distance
+		double azi = gps1.north_angle(gps0);
+		double elev = Math.toDegrees(Math.asin((gps0.z()-gps1.z())/(distance3d(gps0 , gps1))));
 		double dis = distance3d(gps0, gps1);
-
-		// calculating the elevation
-		double dis_2D = distance2d(gps0, gps1);
-		double ang = Math.acos(dis_2D / dis);
-//		double elev = dis * (Math.sin(ang));
-
-
-		double[] ans = { azi, ang, dis };
+				
+		double[] ans = { azi, elev, dis };
 
 		return ans;
 	}

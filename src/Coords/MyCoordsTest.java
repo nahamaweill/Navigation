@@ -64,6 +64,7 @@ class MyCoordsTest {
 		double dis= ans[2];
 		if (azi!=308.52949903084226 || elev!=0.040541419501888894 || dis!=493.4578015650176)
 			fail("The azimouth or the elevation or the distance are not correct");
+		//
 	}
 
 	@Test

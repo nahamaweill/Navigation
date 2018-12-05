@@ -2,6 +2,8 @@ package Packman_Game;
 
 import java.util.ArrayList;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 import GIS.GIS_element;
 import Geom.Point3D;
 
@@ -58,7 +60,7 @@ public class Packman {
 		this.location.set_z(location.get_x() + z_move);
 	}
 
-	public Fruit fruitClosest(ArrayList<Fruit> fruit_list) {
+	public Fruit closestFruit(ArrayList<Fruit> fruit_list) {
 		double distance = this.location.distance3D(fruit_list.get(0).getLocation());
 		long ID = 0;
 		int price = 0;
@@ -73,6 +75,24 @@ public class Packman {
 		}
 		Fruit ans = new Fruit(ans_point, ID, price);
 		return ans;
+	}
+
+	public ArrayList<Fruit> MyTrack(ArrayList<Fruit> list) {
+		java.util.Iterator<Fruit> iter = list.iterator();
+		ArrayList<Fruit> ans = new ArrayList<Fruit>();
+		while (iter.hasNext()) {
+			Fruit runner = iter.next();
+			if (this.location.get_x() == runner.getLocation().get_x()
+					&& this.location.get_y() == runner.getLocation().get_y()) {
+				ans.add(runner);
+			}
+		}
+		return ans;
+	}
+
+	public int level(ArrayList<Fruit> list) {
+		ArrayList<Fruit> ans = MyTrack(list);
+		return ans.size();
 	}
 
 }

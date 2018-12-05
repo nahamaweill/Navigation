@@ -30,8 +30,7 @@ public class Packman {
 		return location;
 	}
 
-
-	public String getID() {
+	public long getID() {
 		return ID;
 	}
 
@@ -51,17 +50,29 @@ public class Packman {
 		this.radius = radius;
 	}
 
-	///////////////////////////My Functions//////////////////////////////////
-	
+	/////////////////////////// My Functions//////////////////////////////////
+
 	public void move(double x_move, double y_move, double z_move) {
 		this.location.set_x(location.get_x() + x_move);
 		this.location.set_y(location.get_x() + y_move);
 		this.location.set_z(location.get_x() + z_move);
 	}
-	
-	public Packman closest(ArrayList<Fruit> fruit_list) {
-		
-		return null;
-		
+
+	public Fruit fruitClosest(ArrayList<Fruit> fruit_list) {
+		double distance = this.location.distance3D(fruit_list.get(0).getLocation());
+		long ID = 0;
+		int price = 0;
+		Point3D ans_point = fruit_list.get(0).getLocation();
+		while (fruit_list.iterator().hasNext()) {
+			Fruit runner = fruit_list.iterator().next();
+			if (this.location.distance3D(runner.getLocation()) < distance) {
+				ans_point = runner.getLocation();
+				ID = runner.getID();
+				price = runner.getPrice();
+			}
+		}
+		Fruit ans = new Fruit(ans_point, ID, price);
+		return ans;
 	}
+
 }

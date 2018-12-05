@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import GIS.MyMeta_data_layer;
-
 public class Map {
 
 	private Image image;
@@ -31,6 +29,7 @@ public class Map {
 	public Point2D Pixel2Point(Pixel pixel) {
 		int width = image.getWidth((ImageObserver) this.image);
 		int height = image.getHeight((ImageObserver) this.image);
+		
 		return null;
 	}
 

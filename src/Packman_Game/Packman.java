@@ -13,6 +13,7 @@ public class Packman {
 	private long ID;
 	private double speed;
 	private double radius;
+	private String color;
 
 	Packman() {
 		location = new Point3D(0, 0, 0);
@@ -21,11 +22,22 @@ public class Packman {
 		radius = 1;
 	}
 
-	Packman(Point3D point, long ID, double speed, double radius) {
+	Packman(Point3D point, long ID, double speed, double radius,String color) {
 		this.location = point;
 		this.ID = ID;
 		this.speed = speed;
 		this.radius = radius;
+		this.color = color;
+	}
+	
+	
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public Point3D getLocation() {

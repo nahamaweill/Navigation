@@ -374,8 +374,13 @@ public class Point3D implements Geom_element, Serializable
 		//changing the point gps from coordinates geometric to cartesian
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 		
-		this._y= this.y()*R;
-		this._x= this.x()*R/ Math.cos(this.y()*(Math.PI/180));
+//		this._y= this.y()*R;
+//		this._x= this.x()*R/ Math.cos(this.y()*(Math.PI/180));
+		
+		this._x=Math.toRadians(_x);// X From GPS To Rad
+		this._y=Math.toRadians(_y);// Y From GPS To Rad
+		this._x=Math.sin(_x)*6371000;
+		this._y=Math.sin(_y)*6371000*0.847091174;
 		
 	}
 	/** 
@@ -387,9 +392,17 @@ public class Point3D implements Geom_element, Serializable
 		//changing the point gps from coordinates cartesian to geometric
 		// we used https://stackoverflow.com/questions/1185408/converting-from-longitude-latitude-to-cartesian-coordinates
 		
-		double y = this.y()/R;
-		double x =  (this.x()*Math.cos(this.y()*(Math.PI/180))/R);
-		this._y = y;
-		this._x = x;
+//		double y = this.y()/R;
+//		double x =  (this.x()*Math.cos(this.y()*(Math.PI/180))/R);
+//		this._y = y;
+//		this._x = x;
+		
+		this._x=_x/6371000;
+		this._y=(_y/6371000)/0.847091174;
+		this._x=Math.asin(_x);
+		this._y=Math.asin(_y);
+		this._x=Math.toDegrees(_x);
+		this._y=Math.toDegrees(_y);
+		
 	}
 }

@@ -53,11 +53,11 @@ public class Game {
 								Double.parseDouble(runner[2])),
 						Long.parseLong(runner[5]), Double.parseDouble(runner[1]), Double.parseDouble(runner[0]),
 						"yellow"));
-			} else if (runner[runner.length - 1].equals("F")) {
-				this.fruits.add(new Fruit(
-						new Point3D(Double.parseDouble(runner[4]), Double.parseDouble(runner[3]),
-								Double.parseDouble(runner[2])),
-						Long.parseLong(runner[5]), Integer.parseInt(runner[1])));
+//			} else if (runner[runner.length - 1].equals("F")) {
+//				this.fruits.add(new Fruit(
+//						new Point3D(Double.parseDouble(runner[4]), Double.parseDouble(runner[3]),
+//								Double.parseDouble(runner[2])),
+//						Long.parseLong(runner[5]), Integer.parseInt(runner[1])));
 			}
 		}
 

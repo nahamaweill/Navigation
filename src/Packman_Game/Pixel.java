@@ -26,13 +26,25 @@ public class Pixel {
 		return this.y;
 	}
 
-	public void move(double arg0, double arg1) {
-		this.x += arg0;
-		this.y += arg1;
+	public Pixel move(Pixel p) 
+	{
+		double pX = this.getX() + p.getX();
+		double pY = this.getY() + p.getY();
+		Pixel ans = new Pixel (pX, pY);
+		return ans;
+	}
+	
+	public Pixel subtract(Pixel p)
+	{
+		double pX = this.getX() - p.getX();
+		double pY = this.getY() - p.getY();
+		Pixel ans = new Pixel (pX, pY);
+		return ans;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return " x value : " + this.getX() + " y value : " + this.getY();
 	}
 

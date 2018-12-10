@@ -13,32 +13,23 @@ public class Packman {
 	private long ID;
 	private double speed;
 	private double radius;
-	private String color;
 
-	Packman() {
+	Packman() 
+	{
 		location = new Point3D(0, 0, 0);
 		ID = 0;
 		speed = 1;
 		radius = 1;
 	}
 
-	Packman(Point3D point, long ID, double speed, double radius,String color) {
+	Packman(Point3D point, long ID, double speed, double radius) 
+	{
 		this.location = point;
 		this.ID = ID;
 		this.speed = speed;
 		this.radius = radius;
-		this.color = color;
 	}
 	
-	
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
 
 	public Point3D getLocation() {
 		return location;
@@ -66,13 +57,15 @@ public class Packman {
 
 	/////////////////////////// My Functions//////////////////////////////////
 
-	public void move(double x_move, double y_move, double z_move) {
+	public void move(double x_move, double y_move, double z_move) 
+	{
 		this.location.set_x(location.get_x() + x_move);
 		this.location.set_y(location.get_x() + y_move);
 		this.location.set_z(location.get_x() + z_move);
 	}
 
-	public Fruit closestFruit(ArrayList<Fruit> fruit_list) {
+	public Fruit closestFruit(ArrayList<Fruit> fruit_list) 
+	{
 		double distance = this.location.distance3D(fruit_list.get(0).getLocation());
 		long ID = 0;
 		int price = 0;

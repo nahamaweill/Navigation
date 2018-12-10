@@ -20,8 +20,8 @@ public class Map {
 	private Image image;
 	private Point3D pStart;
 	private Point3D pEnd;
-	int image_width = 1433;
-	int image_height = 642;
+	int image_width;
+	int image_height;
 
 	Map() {
 		image = null;
